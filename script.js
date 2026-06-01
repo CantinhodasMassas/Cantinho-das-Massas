@@ -1,6 +1,7 @@
 let carrinho = [];
 
 let molhoSelecionado = "";
+let macarraoSelecionado = "";
 
 function adicionarAoCarrinho(item, preco) {
 
@@ -19,6 +20,13 @@ function selecionarMolho(molho){
     atualizarCarrinho();
 }
 
+function selecionarMacarrao(macarrao){
+
+    macarraoSelecionado = macarrao;
+
+    atualizarCarrinho();
+}
+
 function atualizarCarrinho() {
 
     let lista = document.getElementById("lista-carrinho");
@@ -26,6 +34,10 @@ function atualizarCarrinho() {
     let total = 0;
 
     lista.innerHTML = "";
+
+    if(macarraoSelecionado !== ""){
+        lista.innerHTML += "<p>🍝 Macarrão: " + macarraoSelecionado + "</p>";
+    }
 
     if(molhoSelecionado !== ""){
         lista.innerHTML += "<p>🍅 Molho: " + molhoSelecionado + "</p>";
