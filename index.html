@@ -16,18 +16,16 @@ header{
     background:#6bbf59;
     color:white;
     text-align:center;
-    padding:30px;
+    padding:25px;
 }
 
 header h1{
     margin:0;
-    font-size:34px;
+    font-size:32px;
 }
 
-.banner{
-    text-align:center;
-    padding:20px;
-    background:white;
+header p{
+    margin:5px 0 0 0;
 }
 
 .cardapio{
@@ -37,36 +35,36 @@ header h1{
 .produto{
     background:white;
     margin-bottom:20px;
-    padding:15px;
     border-radius:12px;
+    overflow:hidden;
     box-shadow:0 2px 6px rgba(0,0,0,0.1);
 }
 
+.produto img{
+    width:100%;
+    display:block;
+}
+
+.info{
+    padding:15px;
+}
+
 .preco{
-    color:#6bbf59;
-    font-size:18px;
+    font-size:20px;
     font-weight:bold;
+    color:#6bbf59;
+    margin:8px 0;
 }
 
 .botao{
+    display:inline-block;
     background:#25D366;
     color:white;
-    padding:12px;
+    padding:12px 15px;
     text-decoration:none;
     border-radius:8px;
-    display:inline-block;
     margin-top:10px;
-    border:none;
 }
-
-input, select{
-    width:100%;
-    padding:10px;
-    margin-top:8px;
-    border-radius:8px;
-    border:1px solid #ccc;
-}
-
 </style>
 </head>
 
@@ -77,100 +75,43 @@ input, select{
     <p>Massas fresquinhas feitas com carinho</p>
 </header>
 
-<section class="banner">
-    <section class="banner.jpg">
-    <h2>Monte seu pedido</h2>
-</section>
-
 <section class="cardapio">
 
-<div class="produto">
-    <img src="marmita-500ml.jpg" style="width:100%; border-radius:10px;">
-    <h3>Marmita 500ml</h3>
-    <div class="preco">R$ 17,90</div>
-    <button class="botao" onclick="adicionar('Marmita 500ml', 17.90)">Adicionar ao carrinho</button>
-</div>
+    <!-- MARMITA 500ML -->
+    <div class="produto">
+       <img src="marmita-500ml.jpg" style="width:100%; border-radius:12px;">
 
-<div class="produto">
-    <img src="marmita-750ml.jpg" style="width:100%; border-radius:10px;">
-    <h3>Marmita 750ml</h3>
-    <div class="preco">R$ 24,90</div>
-    <button class="botao" onclick="adicionar('Marmita 750ml', 24.90)">Adicionar ao carrinho</button>
-</div>
+        <div class="info">
+            <h3>Marmita 500ml</h3>
+            <p>Porção ideal para uma pessoa</p>
+
+            <div class="preco">R$ 17,90</div>
+
+            <a class="botao"
+            href="https://wa.me/5511910746095?text=Quero%20Marmita%20500ml%20-%20R%24%2017,90">
+            Adicionar ao pedido
+            </a>
+        </div>
+    </div>
+
+    <!-- MARMITA 750ML -->
+    <div class="produto">
+       <img src="marmita-750ml.jpg" style="width:100%; border-radius:12px;">
+
+        <div class="info">
+            <h3>Marmita 750ml</h3>
+            <p>Porção reforçada</p>
+
+            <div class="preco">R$ 24,90</div>
+
+            <a class="botao"
+            href="https://wa.me/5511910746095?text=Quero%20Marmita%20750ml%20-%20R%24%2024,90">
+            Adicionar ao pedido
+            </a>
+        </div>
+    </div>
 
 </section>
-
-<!-- CARRINHO -->
-<section class="cardapio">
-<div class="produto">
-<h2>🛒 Seu Pedido</h2>
-
-<ul id="carrinho"></ul>
-
-<p><strong>Total: R$ <span id="total">0.00</span></strong></p>
-
-<input id="nome" placeholder="Seu nome">
-<input id="telefone" placeholder="Seu telefone">
-<input id="endereco" placeholder="Seu endereço">
-
-<select id="pagamento">
-<option>Pix</option>
-<option>Dinheiro</option>
-<option>Cartão</option>
-</select>
-
-<br><br>
-
-<button class="botao" onclick="enviarPedido()">Finalizar pedido no WhatsApp</button>
-</div>
-</section>
-
-<script>
-let carrinho = [];
-
-function adicionar(nome, preco){
-    carrinho.push({nome, preco});
-    atualizar();
-}
-
-function atualizar(){
-    let lista = document.getElementById('carrinho');
-    let total = 0;
-    lista.innerHTML = '';
-
-    carrinho.forEach(item => {
-        let li = document.createElement('li');
-        li.textContent = item.nome + ' - R$ ' + item.preco.toFixed(2);
-        lista.appendChild(li);
-        total += item.preco;
-    });
-
-    document.getElementById('total').innerText = total.toFixed(2);
-}
-
-function enviarPedido(){
-    let nome = document.getElementById('nome').value;
-    let telefone = document.getElementById('telefone').value;
-    let endereco = document.getElementById('endereco').value;
-    let pagamento = document.getElementById('pagamento').value;
-
-    let msg = '🍝 Pedido Cantinho das Massas%0A%0A';
-    msg += 'Nome: ' + nome + '%0A';
-    msg += 'Telefone: ' + telefone + '%0A';
-    msg += 'Endereço: ' + endereco + '%0A';
-    msg += 'Pagamento: ' + pagamento + '%0A%0A';
-
-    msg += 'Itens:%0A';
-
-    carrinho.forEach(i => {
-        msg += '- ' + i.nome + ' R$ ' + i.preco.toFixed(2) + '%0A';
-    });
-
-    msg += '%0ATotal: R$ ' + document.getElementById('total').innerText;
-
-    window.open('https://wa.me/5511910746095?text=' + msg);
-}
-</script>
 
 </body>
 </html>
