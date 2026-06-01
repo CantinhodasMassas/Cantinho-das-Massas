@@ -10,7 +10,9 @@ function adicionarAoCarrinho(item, preco) {
     atualizarCarrinho();
 }
 
-function atualizarCarrinho() {
+function atualizarCarrinho(if(molhoSelecionado !== ""){
+    lista.innerHTML += "<p>🍅 Molho: " + molhoSelecionado + "</p>";
+}) {
 
     let lista = document.getElementById("lista-carrinho");
 
@@ -28,4 +30,12 @@ function atualizarCarrinho() {
 
     document.getElementById("total").innerHTML =
         "Total: R$ " + total.toFixed(2).replace(".", ",");
+}
+let molhoSelecionado = "";
+
+function selecionarMolho(molho){
+
+    molhoSelecionado = molho;
+
+    atualizarCarrinho();
 }
