@@ -3,10 +3,19 @@ let carrinho = [];
 function adicionarAoCarrinho(item) {
     carrinho.push(item);
 
-    alert(
-        item + "\n\n" +
-        "Itens no carrinho: " + carrinho.length
-    );
+    atualizarCarrinho();
+}
 
-    console.log(carrinho);
+function atualizarCarrinho() {
+
+    let lista = document.getElementById("lista-carrinho");
+
+    lista.innerHTML = "";
+
+    carrinho.forEach(function(item){
+        lista.innerHTML += "<p>✓ " + item + "</p>";
+    });
+
+    document.getElementById("total").innerHTML =
+        "Itens no carrinho: " + carrinho.length;
 }
