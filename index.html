@@ -16,16 +16,26 @@ header{
     background:#6bbf59;
     color:white;
     text-align:center;
-    padding:25px;
+    padding:30px;
 }
 
 header h1{
     margin:0;
-    font-size:32px;
+    font-size:38px;
 }
 
 header p{
-    margin:5px 0 0 0;
+    margin-top:10px;
+}
+
+.botao{
+    background:#25D366;
+    color:white;
+    padding:15px 20px;
+    text-decoration:none;
+    border-radius:8px;
+    display:inline-block;
+    margin-top:10px;
 }
 
 .cardapio{
@@ -39,33 +49,8 @@ header p{
     overflow:hidden;
     box-shadow:0 2px 6px rgba(0,0,0,0.1);
 }
-
-.produto img{
-    width:100%;
-    display:block;
-}
-
-.info{
-    padding:15px;
-}
-
-.preco{
-    font-size:20px;
-    font-weight:bold;
-    color:#6bbf59;
-    margin:8px 0;
-}
-
-.botao{
-    display:inline-block;
-    background:#25D366;
-    color:white;
-    padding:12px 15px;
-    text-decoration:none;
-    border-radius:8px;
-    margin-top:10px;
-}
 </style>
+
 </head>
 
 <body>
@@ -77,37 +62,51 @@ header p{
 
 <section class="cardapio">
 
-    <!-- MARMITA 500ML -->
+    <!-- MONTE SUA MASSA -->
     <div class="produto">
-       <img src="marmita-500ml.jpg" style="width:100%; border-radius:12px;">
 
-        <div class="info">
-            <h3>Marmita 500ml</h3>
-            <p>Porção ideal para uma pessoa</p>
+        <img src="marmita-500ml.jpg" style="width:100%;">
 
-            <div class="preco">R$ 17,90</div>
+        <div style="padding:15px;">
+
+            <h2>🍝 Monte sua Massa</h2>
+            <p>Escolha o tamanho e monte do seu jeito</p>
+
+            <h3>Tamanho</h3>
 
             <a class="botao"
-            href="https://wa.me/5511910746095?text=Quero%20Marmita%20500ml%20-%20R%24%2017,90">
-            Adicionar ao pedido
+            href="https://wa.me/5511910746095?text=Quero%20massa%20500ml%20-%20R%24%2017,90">
+            500ml - R$ 17,90
             </a>
-        </div>
-    </div>
 
-    <!-- MARMITA 750ML -->
-    <div class="produto">
-       <img src="marmita-750ml.jpg" style="width:100%; border-radius:12px;">
-
-        <div class="info">
-            <h3>Marmita 750ml</h3>
-            <p>Porção reforçada</p>
-
-            <div class="preco">R$ 24,90</div>
+            <br>
 
             <a class="botao"
-            href="https://wa.me/5511910746095?text=Quero%20Marmita%20750ml%20-%20R%24%2024,90">
-            Adicionar ao pedido
+            href="https://wa.me/5511910746095?text=Quero%20massa%20750ml%20-%20R%24%2024,90">
+            750ml - R$ 24,90
             </a>
+
+            <h3>Molhos</h3>
+
+            <a class="botao"
+            href="https://wa.me/5511910746095?text=Quero%20massa%20com%20molho%20bolonhesa">
+            Bolonhesa
+            </a>
+
+            <br>
+
+            <a class="botao"
+            href="https://wa.me/5511910746095?text=Quero%20massa%20com%20molho%20branco">
+            Molho Branco
+            </a>
+
+            <br><br>
+
+            <a class="botao"
+            href="https://wa.me/5511910746095?text=Quero%20finalizar%20meu%20pedido">
+            Finalizar Pedido
+            </a>
+
         </div>
     </div>
 
