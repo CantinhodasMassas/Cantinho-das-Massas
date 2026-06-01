@@ -1,5 +1,7 @@
 let carrinho = [];
 
+let molhoSelecionado = "";
+
 function adicionarAoCarrinho(item, preco) {
 
     carrinho = [{
@@ -10,15 +12,24 @@ function adicionarAoCarrinho(item, preco) {
     atualizarCarrinho();
 }
 
-function atualizarCarrinho(if(molhoSelecionado !== ""){
-    lista.innerHTML += "<p>🍅 Molho: " + molhoSelecionado + "</p>";
-}) {
+function selecionarMolho(molho){
+
+    molhoSelecionado = molho;
+
+    atualizarCarrinho();
+}
+
+function atualizarCarrinho() {
 
     let lista = document.getElementById("lista-carrinho");
 
     let total = 0;
 
     lista.innerHTML = "";
+
+    if(molhoSelecionado !== ""){
+        lista.innerHTML += "<p>🍅 Molho: " + molhoSelecionado + "</p>";
+    }
 
     carrinho.forEach(function(item){
 
@@ -30,12 +41,4 @@ function atualizarCarrinho(if(molhoSelecionado !== ""){
 
     document.getElementById("total").innerHTML =
         "Total: R$ " + total.toFixed(2).replace(".", ",");
-}
-let molhoSelecionado = "";
-
-function selecionarMolho(molho){
-
-    molhoSelecionado = molho;
-
-    atualizarCarrinho();
 }
