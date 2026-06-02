@@ -169,8 +169,6 @@ Fusilli
 
 <h3>Proteína</h3>
 
-<h3>Proteína</h3>
-
 <button class="botao"
 onclick="adicionarAoCarrinho('Carne Moída',0)">
 Carne Moída </button>
@@ -299,6 +297,13 @@ style="width:90%;padding:12px;margin:5px;border-radius:8px;border:1px solid #ccc
 </select>
 
 </section>
+<section id="carrinho">
+
+<h2>🛒 Seu Carrinho</h2>
+
+<p>🍝 Sua marmita está sendo montada!</p>
+
+<div id="lista-carrinho"></div>
 <p id="total">
 Total: R$ 0,00
 </p>
@@ -379,17 +384,42 @@ function atualizarWhatsapp(){
     });
 
    mensagem +=
-"%0A%0A👤 Cliente: " +
-document.getElementById("nome").value +
+<section>
 
-"%0A📞 Telefone: " +
-document.getElementById("telefoneCliente").value +
+<h2>👤 Dados do Cliente</h2>
 
-"%0A📍 Endereço: " +
-document.getElementById("endereco").value +
+<input type="text"
+id="nome"
+placeholder="Nome Completo"
+oninput="atualizarWhatsapp()"
+style="width:90%;padding:12px;margin:5px;border-radius:8px;border:1px solid #ccc;">
 
-"%0A💳 Pagamento: " +
-document.getElementById("pagamento").value +
+<input type="tel"
+id="telefoneCliente"
+placeholder="Telefone"
+oninput="atualizarWhatsapp()"
+style="width:90%;padding:12px;margin:5px;border-radius:8px;border:1px solid #ccc;">
+
+<input type="text"
+id="endereco"
+placeholder="Endereço Completo"
+oninput="atualizarWhatsapp()"
+style="width:90%;padding:12px;margin:5px;border-radius:8px;border:1px solid #ccc;">
+
+<select
+id="pagamento"
+onchange="atualizarWhatsapp()"
+style="width:90%;padding:12px;margin:5px;border-radius:8px;border:1px solid #ccc;">
+
+<option value="">Forma de Pagamento</option>
+<option>Pix</option>
+<option>Dinheiro</option>
+<option>Cartão de Débito</option>
+<option>Cartão de Crédito</option>
+
+</select>
+
+</section>
 
 "%0A%0A💰 Total: R$ " +
 total.toFixed(2);
