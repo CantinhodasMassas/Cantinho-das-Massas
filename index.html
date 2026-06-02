@@ -255,26 +255,30 @@ Cheiro Verde
 <input type="text"
 id="nome"
 placeholder="Nome Completo"
+oninput="atualizarWhatsapp()"
 style="width:90%;padding:12px;margin:5px;border-radius:8px;border:1px solid #ccc;">
 
 <input type="tel"
 id="telefoneCliente"
 placeholder="Telefone"
+oninput="atualizarWhatsapp()"
 style="width:90%;padding:12px;margin:5px;border-radius:8px;border:1px solid #ccc;">
 
 <input type="text"
 id="endereco"
 placeholder="Endereço Completo"
+oninput="atualizarWhatsapp()"
 style="width:90%;padding:12px;margin:5px;border-radius:8px;border:1px solid #ccc;">
 
 <select id="pagamento"
+onchange="atualizarWhatsapp()"
 style="width:90%;padding:12px;margin:5px;border-radius:8px;border:1px solid #ccc;">
 
 <option value="">Forma de Pagamento</option>
-<option>Pix</option>
-<option>Dinheiro</option>
-<option>Cartão de Débito</option>
-<option>Cartão de Crédito</option>
+<option value="Pix">Pix</option>
+<option value="Dinheiro">Dinheiro</option>
+<option value="Cartão de Débito">Cartão de Débito</option>
+<option value="Cartão de Crédito">Cartão de Crédito</option>
 
 </select>
 
