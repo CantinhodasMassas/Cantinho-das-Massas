@@ -108,3 +108,60 @@ button.botao{
 button.botao:hover{
     opacity:0.9;
 }
+<script>
+let carrinho = [];
+let total = 0;
+let molhoSelecionado = "";
+let macarraoSelecionado = "";
+
+function selecionarMolho(molho){
+    molhoSelecionado = molho;
+    alert("Molho selecionado: " + molho);
+}
+
+function selecionarMacarrao(macarrao){
+    macarraoSelecionado = macarrao;
+    alert("Macarrão selecionado: " + macarrao);
+}
+
+function adicionarAoCarrinho(nome, preco){
+
+    let descricao = nome;
+
+    if(molhoSelecionado){
+        descricao += " | Molho: " + molhoSelecionado;
+    }
+
+    if(macarraoSelecionado){
+        descricao += " | Macarrão: " + macarraoSelecionado;
+    }
+
+    carrinho.push({
+        nome: descricao,
+        preco: preco
+    });
+
+    total += preco;
+
+    atualizarCarrinho();
+}
+
+function atualizarCarrinho(){
+
+    let lista = document.getElementById("lista-carrinho");
+
+    lista.innerHTML = "";
+
+    carrinho.forEach(item => {
+        lista.innerHTML += `
+            <p>${item.nome} - R$ ${item.preco.toFixed(2)}</p>
+        `;
+    });
+
+    document.getElementById("total").innerHTML =
+        "Total: R$ " + total.toFixed(2);
+}
+</script>
+
+</body>
+</html>
