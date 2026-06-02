@@ -135,19 +135,17 @@ onclick="adicionarAoCarrinho('Marmita 750ml',24.90)">
 750ml - R$24,90
 </button>
 
-<h3>Molho</h3>
-
 <button class="botao"
-onclick="adicionarAoCarrinho('Molho Branco',0)">
-Branco
+onclick="adicionarAoCarrinho('Molho Bolonhesa',0)">
+Bolonhesa
 </button>
 
 <button class="botao"
-onclick="adicionarAoCarrinho('Molho Sugo',0)">
-Sugo
+onclick="adicionarAoCarrinho('Molho Cheddar',0)">
+Cheddar
 </button>
 
-<h3>Massa</h3>
+<h3>Macarrão</h3>
 
 <button class="botao"
 onclick="adicionarAoCarrinho('Espaguete',0)">
@@ -160,52 +158,147 @@ Talharim
 </button>
 
 <button class="botao"
-onclick="adicionarAoCarrinho('Penne',0)">
-Penne
+onclick="adicionarAoCarrinho('Talharim',0)">
+Parafuso
+</button>
+    
+<button class="botao"
+onclick="adicionarAoCarrinho('Talharim',0)">
+Fusilli
 </button>
 
 <h3>Proteína</h3>
 
-<button class="botao"
-onclick="adicionarAoCarrinho('Carne Moída',5)">
-Carne Moída +R$5
-</button>
+<h3>Proteína</h3>
 
 <button class="botao"
-onclick="adicionarAoCarrinho('Frango Desfiado',5)">
-Frango +R$5
-</button>
+onclick="adicionarAoCarrinho('Carne Moída',0)">
+Carne Moída </button>
 
 <button class="botao"
-onclick="adicionarAoCarrinho('Calabresa',5)">
-Calabresa +R$5
-</button>
+onclick="adicionarAoCarrinho('Frango Desfiado',0)">
+Frango Desfiado </button>
+
+<button class="botao"
+onclick="adicionarAoCarrinho('Calabresa',0)">
+Calabresa </button>
+
+<button class="botao"
+onclick="adicionarAoCarrinho('Bacon em Cubos',0)">
+Bacon em Cubos </button>
+
+<button class="botao"
+onclick="adicionarAoCarrinho('Presunto em Cubos',0)">
+Presunto em Cubos </button>
 
 <h3>Complementos</h3>
 
 <button class="botao"
-onclick="adicionarAoCarrinho('Parmesão',2)">
-Parmesão +R$2
+onclick="adicionarAoCarrinho('Milho Verde',0)">
+Milho Verde
+    
+<button class="botao"
+onclick="adicionarAoCarrinho('Azeitona Fatiada',0)">
+Azeitona Fatiada
+
+<button class="botao"
+onclick="adicionarAoCarrinho('Alho Crocante',0)">
+Alho Crocante
+    
+<button class="botao"
+onclick="adicionarAoCarrinho('Champignon',0)">
+Champignon
+</button>
+
+</button>
+<button class="botao"
+onclick="adicionarAoCarrinho('Brocolis',0)">
+Brocolis
 </button>
 
 <button class="botao"
-onclick="adicionarAoCarrinho('Milho Verde',2)">
-Milho +R$2
+onclick="adicionarAoCarrinho('Ervilha',0)">
+Ervilha
+</button>
+   
+<button class="botao"
+onclick="adicionarAoCarrinho('Tomate Cereja',0)">
+Tomate Cereja
+</button>
+    
+<button class="botao"
+onclick="adicionarAoCarrinho('Tomate Seco',0)">
+Tomate Seco
 </button>
 
 <button class="botao"
-onclick="adicionarAoCarrinho('Tomate Cereja',3)">
-Tomate Cereja +R$3
+onclick="adicionarAoCarrinho('Cenoura Ralada',0)">
+Cenoura Ralada
 </button>
 
-</section>
+<button class="botao"
+onclick="adicionarAoCarrinho('Cebola Picada',0)">
+Cebola /picada
+</button>
 
+<button class="botao"
+onclick="adicionarAoCarrinho('Ervilha',0)">
+Ervilha
+</button>
+
+<h3> Finalização</h3>
+
+<button class="botao"
+onclick="adicionarAoCarrinho('Mussarela Ralada',0)">
+Mussarela Ralada </button>
+
+<button class="botao"
+onclick="adicionarAoCarrinho('Parmesão Ralado',0)">
+Parmesão Ralado </button>
+
+<h3>Temperos Finais</h3>
+
+<button class="botao"
+onclick="adicionarAoCarrinho('Orégano',0)">
+Orégano </button>
+
+<button class="botao"
+onclick="adicionarAoCarrinho('Cheiro Verde',0)">
+Cheiro Verde </button>
+<div id="lista-carrinho"></div>
 <section id="carrinho">
 
-<h2>🛒 Carrinho</h2>
+<section>
 
-<div id="lista-carrinho"></div>
+<h2>👤 Dados do Cliente</h2>
 
+<input type="text"
+id="nome"
+placeholder="Nome Completo"
+style="width:90%;padding:12px;margin:5px;border-radius:8px;border:1px solid #ccc;">
+
+<input type="tel"
+id="telefoneCliente"
+placeholder="Telefone"
+style="width:90%;padding:12px;margin:5px;border-radius:8px;border:1px solid #ccc;">
+
+<input type="text"
+id="endereco"
+placeholder="Endereço Completo"
+style="width:90%;padding:12px;margin:5px;border-radius:8px;border:1px solid #ccc;">
+
+<select id="pagamento"
+style="width:90%;padding:12px;margin:5px;border-radius:8px;border:1px solid #ccc;">
+
+<option value="">Forma de Pagamento</option>
+<option>Pix</option>
+<option>Dinheiro</option>
+<option>Cartão de Débito</option>
+<option>Cartão de Crédito</option>
+
+</select>
+
+</section>
 <p id="total">
 Total: R$ 0,00
 </p>
@@ -285,10 +378,21 @@ function atualizarWhatsapp(){
 
     });
 
-    mensagem +=
-    "%0A💰 Total: R$ "+
-    total.toFixed(2);
+   mensagem +=
+"%0A%0A👤 Cliente: " +
+document.getElementById("nome").value +
 
+"%0A📞 Telefone: " +
+document.getElementById("telefoneCliente").value +
+
+"%0A📍 Endereço: " +
+document.getElementById("endereco").value +
+
+"%0A💳 Pagamento: " +
+document.getElementById("pagamento").value +
+
+"%0A%0A💰 Total: R$ " +
+total.toFixed(2);
     let telefone =
     "5511910746095";
 
