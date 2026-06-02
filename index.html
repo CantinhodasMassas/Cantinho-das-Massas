@@ -250,147 +250,38 @@ Cheiro Verde
 </button>
 
 </section>
-<h2>👤 Dados do Cliente</h2>
 
-<input type="text"
-id="nome"
-placeholder="Nome Completo"
-oninput="atualizarWhatsapp()"
-style="width:90%;padding:12px;margin:5px;border-radius:8px;border:1px solid #ccc;">
+    function atualizarWhatsapp(){
 
-<input type="tel"
-id="telefoneCliente"
-placeholder="Telefone"
-oninput="atualizarWhatsapp()"
-style="width:90%;padding:12px;margin:5px;border-radius:8px;border:1px solid #ccc;">
-
-<input type="text"
-id="endereco"
-placeholder="Endereço Completo"
-oninput="atualizarWhatsapp()"
-style="width:90%;padding:12px;margin:5px;border-radius:8px;border:1px solid #ccc;">
-
-<select id="pagamento"
-onchange="atualizarWhatsapp()"
-style="width:90%;padding:12px;margin:5px;border-radius:8px;border:1px solid #ccc;">
-
-<option value="">Forma de Pagamento</option>
-<option value="Pix">Pix</option>
-<option value="Dinheiro">Dinheiro</option>
-<option value="Cartão de Débito">Cartão de Débito</option>
-<option value="Cartão de Crédito">Cartão de Crédito</option>
-
-</select>
-
-</section>
-<section id="carrinho">
-
-<h2>🛒 Seu Carrinho</h2>
-
-<p>🍝 Sua marmita está sendo montada!</p>
-
-<div id="lista-carrinho"></div>
-<p id="total">
-Total: R$ 0,00
-</p>
-
-<button class="botao" onclick="limparCarrinho()">
-Limpar Carrinho
-</button>
-
-<br><br>
-
-<a id="linkWhatsapp"
-class="whatsapp"
-target="_blank">
-Finalizar Pedido no WhatsApp
-</a>
-
-</section>
-
-<script>
-
-let carrinho = [];
-let total = 0;
-
-function adicionarAoCarrinho(descricao,preco){
-
-    carrinho.push({
-        nome: descricao,
-        preco: preco
-    });
-
-    total += preco;
-
-    atualizarCarrinho();
-}
-
-function atualizarCarrinho(){
-
-    let lista = document.getElementById("lista-carrinho");
-
-    lista.innerHTML = "";
+    let mensagem =
+    "🍝 *Pedido Cantinho das Massas*%0A%0A";
 
     carrinho.forEach(item => {
 
-        lista.innerHTML +=
-        "<p>" + item.nome +
-        " - R$ " + item.preco.toFixed(2) +
-        "</p>";
+        mensagem +=
+        "• " + item.nome + "%0A";
 
     });
 
-    document.getElementById("total").innerHTML =
-    "Total: R$ " + total.toFixed(2);
-
-    atualizarWhatsapp();
-}
-
-function limparCarrinho(){
-
-    carrinho = [];
-    total = 0;
-
-    atualizarCarrinho();
-}
-
-function atualizarWhatsapp(){
-
-    let mensagem =
-   function atualizarWhatsapp(){
-
-```
-let mensagem =
-"🍝 *Pedido Cantinho das Massas*%0A%0A";
-
-carrinho.forEach(item => {
-
     mensagem +=
-    "• " + item.nome + "%0A";
+    "%0A👤 Cliente: " +
+    document.getElementById("nome").value +
 
-});
+    "%0A📞 Telefone: " +
+    document.getElementById("telefoneCliente").value +
 
-mensagem +=
-"%0A👤 Cliente: " +
-document.getElementById("nome").value +
+    "%0A📍 Endereço: " +
+    document.getElementById("endereco").value +
 
-"%0A📞 Telefone: " +
-document.getElementById("telefoneCliente").value +
+    "%0A💳 Pagamento: " +
+    document.getElementById("pagamento").value +
 
-"%0A📍 Endereço: " +
-document.getElementById("endereco").value +
+    "%0A%0A💰 Total: R$ " +
+    total.toFixed(2);
 
-"%0A💳 Pagamento: " +
-document.getElementById("pagamento").value +
-
-"%0A%0A💰 Total: R$ " +
-total.toFixed(2);
-
-document.getElementById("linkWhatsapp").href =
-"https://wa.me/5511910746095?text=" + mensagem;
-```
-
-}
+    document.getElementById("linkWhatsapp").href =
+    "https://wa.me/5511910746095?text=" + mensagem;
+   }
         
-</body>
-</html>
+    </body>
+    </html>
