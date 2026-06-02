@@ -357,53 +357,40 @@ function limparCarrinho(){
 function atualizarWhatsapp(){
 
     let mensagem =
-    "🍝 *Pedido Cantinho das Massas*%0A%0A";
+   function atualizarWhatsapp(){
 
-    carrinho.forEach(item => {
+```
+let mensagem =
+"🍝 *Pedido Cantinho das Massas*%0A%0A";
 
-        mensagem +=
-        "• " + item.nome + "%0A";
-
-    });
+carrinho.forEach(item => {
 
     mensagem +=
-    <section>
+    "• " + item.nome + "%0A";
 
-<h2>👤 Dados do Cliente</h2>
+});
 
-<input type="text"
-id="nome"
-placeholder="Nome Completo"
-oninput="atualizarWhatsapp()"
-style="width:90%;padding:12px;margin:5px;border-radius:8px;border:1px solid #ccc;">
+mensagem +=
+"%0A👤 Cliente: " +
+document.getElementById("nome").value +
 
-<input type="tel"
-id="telefoneCliente"
-placeholder="Telefone"
-oninput="atualizarWhatsapp()"
-style="width:90%;padding:12px;margin:5px;border-radius:8px;border:1px solid #ccc;">
+"%0A📞 Telefone: " +
+document.getElementById("telefoneCliente").value +
 
-<input type="text"
-id="endereco"
-placeholder="Endereço Completo"
-oninput="atualizarWhatsapp()"
-style="width:90%;padding:12px;margin:5px;border-radius:8px;border:1px solid #ccc;">
+"%0A📍 Endereço: " +
+document.getElementById("endereco").value +
 
-<select
-id="pagamento"
-onchange="atualizarWhatsapp()"
-style="width:90%;padding:12px;margin:5px;border-radius:8px;border:1px solid #ccc;">
+"%0A💳 Pagamento: " +
+document.getElementById("pagamento").value +
 
-<option value="">Forma de Pagamento</option>
-<option value="Pix">Pix</option>
-<option value="Dinheiro">Dinheiro</option>
-<option value="Cartão de Débito">Cartão de Débito</option>
-<option value="Cartão de Crédito">Cartão de Crédito</option>
+"%0A%0A💰 Total: R$ " +
+total.toFixed(2);
 
-</select>
+document.getElementById("linkWhatsapp").href =
+"https://wa.me/5511910746095?text=" + mensagem;
+```
 
-</section>
-</script>
-
+}
+        
 </body>
 </html>
