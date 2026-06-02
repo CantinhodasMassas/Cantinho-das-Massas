@@ -3,15 +3,13 @@
 
 <h3>Tamanho</h3>
 
-<button class="botao"
-onclick="adicionarAoCarrinho('Marmita 500ml',17.90)">
+<button class="botao" onclick="adicionarAoCarrinho('Marmita 500ml',17.90)">
 500ml - R$ 17,90
 </button>
 
 <br><br>
 
-<button class="botao"
-onclick="adicionarAoCarrinho('Marmita 750ml',24.90)">
+<button class="botao" onclick="adicionarAoCarrinho('Marmita 750ml',24.90)">
 750ml - R$ 24,90
 </button>
 
@@ -81,9 +79,8 @@ Fusili
     </h3>
 </div>
 
-<br>
-
-   .botao{
+<style>
+.botao{
     background:#25D366;
     color:white;
     padding:15px;
@@ -100,14 +97,11 @@ Fusili
     text-align:center;
 }
 
-button.botao{
-    background:#25D366;
-    color:white;
-}
-
 button.botao:hover{
     opacity:0.9;
 }
+</style>
+
 <script>
 let carrinho = [];
 let total = 0;
@@ -116,12 +110,10 @@ let macarraoSelecionado = "";
 
 function selecionarMolho(molho){
     molhoSelecionado = molho;
-    alert("Molho selecionado: " + molho);
 }
 
 function selecionarMacarrao(macarrao){
     macarraoSelecionado = macarrao;
-    alert("Macarrão selecionado: " + macarrao);
 }
 
 function adicionarAoCarrinho(nome, preco){
@@ -153,15 +145,10 @@ function atualizarCarrinho(){
     lista.innerHTML = "";
 
     carrinho.forEach(item => {
-        lista.innerHTML += `
-            <p>${item.nome} - R$ ${item.preco.toFixed(2)}</p>
-        `;
+        lista.innerHTML += "<p>" + item.nome + " - R$ " + item.preco.toFixed(2) + "</p>";
     });
 
     document.getElementById("total").innerHTML =
-        "Total: R$ " + total.toFixed(2);
+    "Total: R$ " + total.toFixed(2);
 }
 </script>
-
-</body>
-</html>
