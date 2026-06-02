@@ -21,7 +21,7 @@ header{
     padding:20px;
 }
 
-.banner{
+.banner.jpg{
     width:100%;
     max-height:400px;
     object-fit:cover;
@@ -251,37 +251,40 @@ Cheiro Verde
 
 </section>
 
-    function atualizarWhatsapp(){
+   function atualizarWhatsapp(){
 
-    let mensagem =
-    "🍝 *Pedido Cantinho das Massas*%0A%0A";
+```
+let mensagem =
+"🍝 *Pedido Cantinho das Massas*%0A%0A";
 
-    carrinho.forEach(item => {
-
-        mensagem +=
-        "• " + item.nome + "%0A";
-
-    });
+carrinho.forEach(item => {
 
     mensagem +=
-    "%0A👤 Cliente: " +
-    document.getElementById("nome").value +
+    "• " + item.nome + "%0A";
 
-    "%0A📞 Telefone: " +
-    document.getElementById("telefoneCliente").value +
+});
 
-    "%0A📍 Endereço: " +
-    document.getElementById("endereco").value +
+mensagem +=
+"%0A👤 Cliente: " +
+document.getElementById("nome").value +
 
-    "%0A💳 Pagamento: " +
-    document.getElementById("pagamento").value +
+"%0A📞 Telefone: " +
+document.getElementById("telefoneCliente").value +
 
-    "%0A%0A💰 Total: R$ " +
-    total.toFixed(2);
+"%0A📍 Endereço: " +
+document.getElementById("endereco").value +
 
-    document.getElementById("linkWhatsapp").href =
-    "https://wa.me/5511910746095?text=" + mensagem;
-   }
+"%0A💳 Pagamento: " +
+document.getElementById("pagamento").value +
+
+"%0A%0A💰 Total: R$ " +
+total.toFixed(2);
+
+document.getElementById("linkWhatsapp").href =
+"https://wa.me/5511910746095?text=" + mensagem;
+```
+
+}
         
     </body>
     </html>
