@@ -250,47 +250,35 @@ Cheiro Verde
 </button>
 
 </section>
+function atualizarWhatsapp(){
 
-let mensagem =
-"🍝 *Pedido Cantinho das Massas*%0A%0A";
+    let mensagem =
+    "🍝 *Pedido Cantinho das Massas*\n\n";
 
-carrinho.forEach(item => {
-
-    mensagem +=
-    "• " + item.nome + "%0A";
-});
-
-    function atualizarWhatsapp() {
-    
-let mensagem =
-"🍝 *Pedido Cantinho das Massas*%0A%0A";
-
-carrinho.forEach(item => {
+    carrinho.forEach(item => {
+        mensagem += "• " + item.nome + "\n";
+    });
 
     mensagem +=
-    "• " + item.nome + "%0A";
-});
-"%0A👤 Cliente: " +
-document.getElementById("nome").value +
+    "\n👤 Cliente: " +
+    document.getElementById("nome").value +
 
-"%0A📞 Telefone: " +
-document.getElementById("telefoneCliente").value +
+    "\n📞 Telefone: " +
+    document.getElementById("telefoneCliente").value +
 
-"%0A📍 Endereço: " +
-document.getElementById("endereco").value +
+    "\n📍 Endereço: " +
+    document.getElementById("endereco").value +
 
-"%0A💳 Pagamento: " +
-document.getElementById("pagamento").value +
+    "\n💳 Pagamento: " +
+    document.getElementById("pagamento").value +
 
-"%0A%0A💰 Total: R$ " +
-total.toFixed(2);
+    "\n\n💰 Total: R$ " +
+    total.toFixed(2);
 
-document.getElementById("linkWhatsapp").href =
-"https://wa.me/5511910746095?text=" + mensagem;
-```
-
+    document.getElementById("linkWhatsapp").href =
+    "https://wa.me/5511910746095?text=" +
+    encodeURIComponent(mensagem);
 }
-
     <section>
 
 <h2>📋 Dados do Cliente</h2>
