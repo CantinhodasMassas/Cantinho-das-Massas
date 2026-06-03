@@ -21,7 +21,7 @@ header{
     padding:20px;
 }
 
-.banner.jpg{
+.banner{
     width:100%;
     max-height:400px;
     object-fit:cover;
@@ -251,9 +251,6 @@ Cheiro Verde
 
 </section>
 
-   function atualizarWhatsapp(){
-
-```
 let mensagem =
 "🍝 *Pedido Cantinho das Massas*%0A%0A";
 
@@ -285,6 +282,79 @@ document.getElementById("linkWhatsapp").href =
 ```
 
 }
-        
+
+    <div id="carrinho">
+    <h2>🛒 Carrinho</h2>
+
+    <div id="itensCarrinho"></div>
+
+    <p id="total">Total: R$ 0,00</p>
+
+    <a id="linkWhatsapp"
+       class="whatsapp"
+       target="_blank">
+       Finalizar Pedido no WhatsApp
+    </a>
+</div>
+
+<script>
+
+let carrinho = [];
+let total = 0;
+
+function adicionarAoCarrinho(nome, preco){
+
+    carrinho.push({
+        nome: nome,
+        preco: preco
+    });
+
+    total += preco;
+
+    atualizarCarrinho();
+    atualizarWhatsapp();
+}
+
+function atualizarCarrinho(){
+
+    let lista =
+    document.getElementById("itensCarrinho");
+
+    lista.innerHTML = "";
+
+    carrinho.forEach(item => {
+
+        lista.innerHTML += `
+            <p>${item.nome}</p>
+        `;
+
+    });
+
+    document.getElementById("total").innerHTML =
+    "Total: R$ " + total.toFixed(2);
+}
+
+function atualizarWhatsapp(){
+
+    let mensagem =
+    "🍝 *Pedido Cantinho das Massas*%0A%0A";
+
+    carrinho.forEach(item => {
+
+        mensagem +=
+        "• " + item.nome + "%0A";
+
+    });
+
+    mensagem +=
+    "%0A%0A💰 Total: R$ " +
+    total.toFixed(2);
+
+    document.getElementById("linkWhatsapp").href =
+    "https://wa.me/5511910746095?text=" +
+    mensagem;
+}
+
+</script>
     </body>
     </html>
