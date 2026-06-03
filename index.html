@@ -258,10 +258,18 @@ carrinho.forEach(item => {
 
     mensagem +=
     "• " + item.nome + "%0A";
-
 });
 
-mensagem +=
+    function atualizarWhatsapp() {
+    
+let mensagem =
+"🍝 *Pedido Cantinho das Massas*%0A%0A";
+
+carrinho.forEach(item => {
+
+    mensagem +=
+    "• " + item.nome + "%0A";
+});
 "%0A👤 Cliente: " +
 document.getElementById("nome").value +
 
@@ -283,6 +291,45 @@ document.getElementById("linkWhatsapp").href =
 
 }
 
+    <section>
+
+<h2>📋 Dados do Cliente</h2>
+
+<div class="card">
+
+<input
+id="nome"
+type="text"
+placeholder="Seu nome"
+style="width:90%;padding:12px;margin:5px;">
+
+<input
+id="telefoneCliente"
+type="tel"
+placeholder="Telefone"
+style="width:90%;padding:12px;margin:5px;">
+
+<input
+id="endereco"
+type="text"
+placeholder="Endereço para entrega"
+style="width:90%;padding:12px;margin:5px;">
+
+<select
+id="pagamento"
+style="width:90%;padding:12px;margin:5px;">
+
+<option value="">Forma de pagamento</option>
+<option>Pix</option>
+<option>Dinheiro</option>
+<option>Cartão Débito</option>
+<option>Cartão Crédito</option>
+
+</select>
+
+</div>
+
+</section>
     <div id="carrinho">
     <h2>🛒 Carrinho</h2>
 
