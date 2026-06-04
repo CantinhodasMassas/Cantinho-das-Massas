@@ -251,34 +251,7 @@ Cheiro Verde
 
 </section>
 function atualizarWhatsapp(){
-
-    let mensagem =
-    "🍝 *Pedido Cantinho das Massas*\n\n";
-
-    carrinho.forEach(item => {
-        mensagem += "• " + item.nome + "\n";
-    });
-
-    mensagem +=
-    "\n👤 Cliente: " +
-    document.getElementById("nome").value +
-
-    "\n📞 Telefone: " +
-    document.getElementById("telefoneCliente").value +
-
-    "\n📍 Endereço: " +
-    document.getElementById("endereco").value +
-
-    "\n💳 Pagamento: " +
-    document.getElementById("pagamento").value +
-
-    "\n\n💰 Total: R$ " +
-    total.toFixed(2);
-
-    document.getElementById("linkWhatsapp").href =
-    "https://wa.me/5511910746095?text=" +
-    encodeURIComponent(mensagem);
-}
+    
     <section>
 
 <h2>📋 Dados do Cliente</h2>
