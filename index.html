@@ -384,24 +384,44 @@ function atualizarCarrinho(){
 function atualizarWhatsapp(){
 
     let mensagem =
-    "🍝 *Pedido Cantinho das Massas*%0A%0A";
+    "🍝 *Pedido Cantinho das Massas*\n\n";
 
     carrinho.forEach(item => {
-
-        mensagem +=
-        "• " + item.nome + "%0A";
-
+        mensagem += "• " + item.nome + "\n";
     });
 
     mensagem +=
-    "%0A%0A💰 Total: R$ " +
+    "\n👤 Cliente: " +
+    document.getElementById("nome").value +
+
+    "\n📞 Telefone: " +
+    document.getElementById("telefoneCliente").value +
+
+    "\n📍 Endereço: " +
+    document.getElementById("endereco").value +
+
+    "\n💳 Pagamento: " +
+    document.getElementById("pagamento").value +
+
+    "\n\n💰 Total: R$ " +
     total.toFixed(2);
 
     document.getElementById("linkWhatsapp").href =
     "https://wa.me/5511910746095?text=" +
-    mensagem;
+    encodeURIComponent(mensagem);
 }
 
+    document.getElementById("nome")
+    .addEventListener("input", atualizarWhatsapp);
+
+document.getElementById("telefoneCliente")
+    .addEventListener("input", atualizarWhatsapp);
+
+document.getElementById("endereco")
+    .addEventListener("input", atualizarWhatsapp);
+
+document.getElementById("pagamento")
+    .addEventListener("change", atualizarWhatsapp);
 </script>
     </body>
     </html>
