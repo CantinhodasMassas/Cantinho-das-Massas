@@ -339,9 +339,21 @@ let total = 0;
 
 function adicionarAoCarrinho(nome, preco){
 
+    if(nome.includes("Marmita")){
+
+        carrinho = carrinho.filter(item =>
+            !item.nome.includes("Marmita")
+        );
+
+        total = carrinho.reduce(
+            (soma,item) => soma + item.preco,
+            0
+        );
+    }
+
     carrinho.push({
-        nome: nome,
-        preco: preco
+        nome,
+        preco
     });
 
     total += preco;
