@@ -422,6 +422,25 @@ function atualizarWhatsapp(){
     encodeURIComponent(mensagem);
 }
 
+    <input
+id="endereco"
+type="text"
+placeholder="Endereço para entrega"
+style="width:90%;padding:12px;margin:5px;">
+
+<select
+id="bairro"
+style="width:90%;padding:12px;margin:5px;">
+
+<option value="0">Selecione seu bairro</option>
+<option value="3">Santa Cruz (+ R$ 3,00)</option>
+<option value="4">Taquacetuba (+ R$ 4,00)</option>
+<option value="4">Água Limpa (+ R$ 4,00)</option>
+<option value="4">Tatetos (+ R$ 4,00)</option>
+
+<select
+id="pagamento"
+style="width:90%;padding:12px;margin:5px;">
     document.getElementById("nome")
     .addEventListener("input", atualizarWhatsapp);
 
