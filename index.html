@@ -276,6 +276,18 @@ placeholder="Endereço para entrega"
 style="width:90%;padding:12px;margin:5px;">
 
 <select
+id="bairro"
+style="width:90%;padding:12px;margin:5px;">
+
+<option value="0">Selecione seu bairro</option>
+<option value="3">Santa Cruz (+ R$ 3,00)</option>
+<option value="4">Taquacetuba (+ R$ 4,00)</option>
+<option value="4">Água Limpa (+ R$ 4,00)</option>
+<option value="4">Tatetos (+ R$ 4,00)</option>
+
+</select>
+
+<select
 id="pagamento"
 style="width:90%;padding:12px;margin:5px;">
 
@@ -308,7 +320,7 @@ style="width:90%;padding:12px;margin:5px;">
 
 let carrinho = [];
 let total = 0;
-
+let taxaEntrega = 0;
 function adicionarAoCarrinho(nome, preco){
 
     if(nome.includes("Marmita")){
