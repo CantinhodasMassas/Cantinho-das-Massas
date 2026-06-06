@@ -321,14 +321,8 @@ style="width:90%;padding:12px;margin:5px;">
 let carrinho = [];
 let total = 0;
 let taxaEntrega = 0;
-function adicionarAoCarrinho(nome, preco){
 
-    let carrinho = [];
-let total = 0;
-let taxaEntrega = 0;
-
-function selecionarBairro(){
-
+function selecionarBairro() {
     taxaEntrega = parseFloat(
         document.getElementById("bairro").value
     ) || 0;
@@ -339,17 +333,6 @@ function selecionarBairro(){
 
 function adicionarAoCarrinho(nome, preco){
 
-    if(nome.includes("Marmita")){
-
-        carrinho = carrinho.filter(item =>
-            !item.nome.includes("Marmita")
-        );
-
-        total = carrinho.reduce(
-            (soma,item) => soma + item.preco,
-            0
-        );
-    }
     if(nome.includes("Marmita")){
 
         carrinho = carrinho.filter(item =>
@@ -382,14 +365,14 @@ function atualizarCarrinho(){
 
     carrinho.forEach(item => {
 
-        lista.innerHTML += `
-            <p>${item.nome}</p>
-        `;
+        lista.innerHTML += `<p>${item.nome}</p>`;
 
     });
 
+    let totalFinal = total + taxaEntrega;
+
     document.getElementById("total").innerHTML =
-    "Total: R$ " + total.toFixed(2);
+    "Total: R$ " + totalFinal.toFixed(2);
 }
 
 function atualizarWhatsapp(){
@@ -414,34 +397,18 @@ function atualizarWhatsapp(){
     "\n💳 Pagamento: " +
     document.getElementById("pagamento").value +
 
+    "\n🚚 Taxa de Entrega: R$ " +
+    taxaEntrega.toFixed(2) +
+
     "\n\n💰 Total: R$ " +
-    total.toFixed(2);
+    (total + taxaEntrega).toFixed(2);
 
     document.getElementById("linkWhatsapp").href =
     "https://wa.me/5511910746095?text=" +
     encodeURIComponent(mensagem);
 }
 
-    <input
-id="endereco"
-type="text"
-placeholder="Endereço para entrega"
-style="width:90%;padding:12px;margin:5px;">
-
-<select
-id="bairro"
-style="width:90%;padding:12px;margin:5px;">
-
-<option value="0">Selecione seu bairro</option>
-<option value="3">Santa Cruz (+ R$ 3,00)</option>
-<option value="4">Taquacetuba (+ R$ 4,00)</option>
-<option value="4">Água Limpa (+ R$ 4,00)</option>
-<option value="4">Tatetos (+ R$ 4,00)</option>
-
-<select
-id="pagamento"
-style="width:90%;padding:12px;margin:5px;">
-    document.getElementById("nome")
+document.getElementById("nome")
     .addEventListener("input", atualizarWhatsapp);
 
 document.getElementById("telefoneCliente")
@@ -455,7 +422,7 @@ document.getElementById("pagamento")
 
 document.getElementById("bairro")
     .addEventListener("change", selecionarBairro);
-    
+
 </script>
     </body>
     </html>
