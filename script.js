@@ -2,6 +2,7 @@ let carrinho = [];
 
 let molhoSelecionado = "";
 let macarraoSelecionado = "";
+let taxaEntrega = 0;
 
 function adicionarAoCarrinho(item, preco) {
 
@@ -23,6 +24,13 @@ function selecionarMolho(molho){
 function selecionarMacarrao(macarrao){
 
     macarraoSelecionado = macarrao;
+
+    atualizarCarrinho();
+}
+
+function selecionarBairro(valor){
+
+    taxaEntrega = parseFloat(valor);
 
     atualizarCarrinho();
 }
@@ -50,6 +58,12 @@ function atualizarCarrinho() {
         total += item.preco;
 
     });
+
+    if(taxaEntrega > 0){
+        lista.innerHTML += "<p>🚚 Taxa de entrega: R$ " + taxaEntrega.toFixed(2).replace(".", ",") + "</p>";
+
+        total += taxaEntrega;
+    }
 
     document.getElementById("total").innerHTML =
         "Total: R$ " + total.toFixed(2).replace(".", ",");
