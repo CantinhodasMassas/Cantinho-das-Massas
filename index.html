@@ -323,6 +323,33 @@ let total = 0;
 let taxaEntrega = 0;
 function adicionarAoCarrinho(nome, preco){
 
+    let carrinho = [];
+let total = 0;
+let taxaEntrega = 0;
+
+function selecionarBairro(){
+
+    taxaEntrega = parseFloat(
+        document.getElementById("bairro").value
+    ) || 0;
+
+    atualizarCarrinho();
+    atualizarWhatsapp();
+}
+
+function adicionarAoCarrinho(nome, preco){
+
+    if(nome.includes("Marmita")){
+
+        carrinho = carrinho.filter(item =>
+            !item.nome.includes("Marmita")
+        );
+
+        total = carrinho.reduce(
+            (soma,item) => soma + item.preco,
+            0
+        );
+    }
     if(nome.includes("Marmita")){
 
         carrinho = carrinho.filter(item =>
