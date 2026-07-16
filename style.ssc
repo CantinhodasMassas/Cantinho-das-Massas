@@ -177,3 +177,149 @@ h2{
 .tamanhos input{
     margin-right:8px;
 }
+
+/* ================= BOTÕES ================= */
+
+.btn-adicionar,
+.btn-principal,
+.btn-finalizar,
+.cupom button{
+
+    width:100%;
+    border:none;
+    cursor:pointer;
+    border-radius:12px;
+    padding:14px;
+    font-size:16px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-adicionar,
+.btn-principal{
+
+    background:#2E7D32;
+    color:#fff;
+    margin-top:15px;
+
+}
+
+.btn-adicionar:hover,
+.btn-principal:hover{
+
+    background:#1B5E20;
+
+}
+
+.btn-finalizar{
+
+    background:#D62828;
+    color:#fff;
+    margin-top:25px;
+
+}
+
+.btn-finalizar:hover{
+
+    background:#B71C1C;
+
+}
+
+/* ================= MARMITA ================= */
+
+.marmita{
+
+    background:#fff;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+.grupo{
+
+    display:flex;
+    flex-direction:column;
+    margin-bottom:18px;
+
+}
+
+.grupo label{
+
+    font-weight:600;
+    margin-bottom:8px;
+
+}
+
+.grupo input,
+.grupo select,
+.grupo textarea{
+
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:15px;
+
+}
+
+.grupo input:focus,
+.grupo select:focus,
+.grupo textarea:focus{
+
+    outline:none;
+    border-color:#2E7D32;
+
+}
+
+/* ================= CARRINHO ================= */
+
+.resumo{
+
+    background:#fff;
+    margin-top:25px;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+.linha{
+
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:12px;
+
+}
+
+.total{
+
+    font-size:22px;
+    color:#D62828;
+    font-weight:bold;
+
+}
+
+/* ================= CUPOM ================= */
+
+.cupom{
+
+    margin-top:25px;
+
+}
+
+.cupom input{
+
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:10px;
+    border:1px solid #ccc;
+
+}
+
+.cupom button{
+
+    background:#F4B400;
+    color:#222;
+
+}
