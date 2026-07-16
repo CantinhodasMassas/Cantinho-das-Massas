@@ -1,510 +1,92 @@
-n <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Cantinho das Massas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
+    <title>Cantinho das Massas</title>
 
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#fff8f0;
-    text-align:center;
-}
+    <link rel="stylesheet" href="style.css">
 
-header{
-    background:none;
-    padding:0;
-    margin:0;
-}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-.banner{
-    width:100%;
-    height:auto;
-    display:block;
-    margin:0 auto;
-}
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-section{
-    padding:20px;
-}
-
-.card{
-    background:white;
-    margin:15px auto;
-    padding:15px;
-    border-radius:15px;
-    box-shadow:0 0 10px rgba(0,0,0,0.1);
-    max-width:500px;
-}
-
-.botao{
-    background:#d62828;
-    color:white;
-    border:none;
-    padding:12px 20px;
-    border-radius:8px;
-    cursor:pointer;
-    margin:5px;
-    font-size:16px;
-}
-
-.botao:hover{
-    background:#a4161a;
-}
-
-#carrinho{
-    background:white;
-    margin:20px;
-    padding:20px;
-    border-radius:15px;
-}
-
-#total{
-    font-size:22px;
-    font-weight:bold;
-    color:#8B0000;
-}
-
-.whatsapp{
-    background:#25D366;
-    color:white;
-    text-decoration:none;
-    display:inline-block;
-    padding:15px 25px;
-    border-radius:10px;
-    margin-top:15px;
-    font-weight:bold;
-}
-
-h2{
-    color:#8B0000;
-}
-
-</style>
 </head>
 
 <body>
 
 <header>
-<header style="padding:0;background:none;">
-    <img src="banner.jpeg" alt="Cantinho das Massas" class="banner">
+
+    <img src="banner.jpeg" class="banner" alt="Cantinho das Massas">
+
+    <div class="cabecalho">
+
+        <h1>🍝 Cantinho das Massas</h1>
+
+        <p class="slogan">
+            Massas artesanais preparadas com carinho.
+        </p>
+
+        <div class="informacoes">
+
+            <span>🚚 Delivery</span>
+
+            <span>💳 Pix</span>
+
+            <span>💵 Dinheiro</span>
+
+            <span>💳 Débito</span>
+
+            <span>💳 Crédito</span>
+
+            <span>💚 VR</span>
+
+            <span>💚 VA</span>
+
+        </div>
+
+    </div>
+
 </header>
-</header>
 
-<section>
+<nav>
 
-<h2>⭐Sugestões da Casa ⭐</h2>
+    <a href="#inicio">Início</a>
 
-<div class="card">
-<h3>Especial Italiana 500ml </h3>
-<p>Espaguete + Molho Sugo + Carne Moída + Parmesão + Tomate Cereja</p>
-<button class="botao"
-onclick="adicionarAoCarrinho('Especial Italiana 500ml',14.90)">
-500ml - R$ 14,90
+    <a href="#sugestoes">Sugestões</a>
 
-</button>
-</div>
-<div class="card">
-<h3>Especial Italiana 750ml</h3>
-<p>Espaguete + Molho Sugo + Carne Moída + Parmesão + Tomate Cereja</p>
-<button class="botao"
-onclick="adicionarAoCarrinho('Especial Italiana 750ml',21.90)">
-750ml - R$ 21,90
+    <a href="#marmita">Monte sua Marmita</a>
 
-</button>
-</div>
+    <a href="#carrinho">Carrinho</a>
 
-<div class="card">
-<h3>Cheddar Bacon 500ml</h3>
-<p>Penne + Molho Cheddar + Bacon + Parmesão + Oregano</p>
-<button class="botao"
-onclick="adicionarAoCarrinho('Cheddar Bacon 500ml',14.90)">
-500ml - R$ 14,90
-</button>
-</div>
+    <a href="#contato">Contato</a>
 
-<div class="card">
-<h3>Cheddar Bacon 750ml</h3>
-<p>Penne + Molho Cheddar + Bacon + Parmesão + Oregano</p>
-<button class="botao"
-onclick="adicionarAoCarrinho('Cheddar Bacon 750ml',21.90)">
-750ml - R$ 21,90
-</button>
-</div>
+</nav>
 
-<div class="card">
-<h3>Talharim Cremoso 500ml</h3>
-<p>Talharim + Molho Branco + Frango + Milho + Mussarela</p>
-<button class="botao"
-onclick="adicionarAoCarrinho('Talharim Cremoso 500ml',14.90)">
-500ml - R$ 14,90
-</button>
-</div>
+<main>
 
-<div class="card">
-<h3>Talharim Cremoso 750ml</h3>
-<p>Talharim + Molho Branco + Frango + Milho + Mussarela</p>
-<button class="botao"
-onclick="adicionarAoCarrinho('Talharim Cremoso 750ml',21.90)">
-750ml - R$ 21,90
-</button>
-</div>
+<section id="inicio" class="boas-vindas">
 
-</section>
+    <h2>Bem-vindo ao Cantinho das Massas 🍝</h2>
 
- <h2>⭐Combo Cantinho⭐</h2>
+    <p>
+        Massas preparadas com ingredientes selecionados, muito sabor e carinho.
+    </p>
 
-<div class="card">
-<h3>Cheddar Bacon + Coca Cola (C)</h3>
-<p>Penne + Molho Cheddar + Bacon + Parmesão + Oregano</p>
-<button class="botao"
-onclick="adicionarAoCarrinho('Cheddar Bacon (C)',18.90)">
-500ml - R$ 18,90
-</button>
-</div>
+    <a href="#sugestoes" class="btn-principal">
 
-<div class="card">
-<h3>Talharim Cremoso + Coca Cola (C)</h3>
-<p>Talharim + Molho Branco + Frango + Milho + Mussarela</p>
-<button class="botao"
-onclick="adicionarAoCarrinho('Talharim Cremoso (C)',18.90)">
-500ml - R$ 18,90
-</button>
-</div>
+        Fazer meu Pedido
 
-<h2>⭐Combo Eapecial Italiana⭐</h2>
-
-<div class="card">
-<h3>Especial Italiana + Coca Cola (C)</h3>
-<p>Espaguete + Molho Sugo + Carne Moída + Parmesão + Tomate Cereja</p>
-<button class="botao"
-onclick="adicionarAoCarrinho('Especial Italiana (C)',17.90)">
-500ml - R$ 17,90
-</button>
-</div>
-<section>
-
-<h2>⭐Executivo⭐</h2>
-
-<div class="card">
-<h3>Nhoque</h3>
-<p> Molho Bolonhesa + Arroz + Batata Palha + Parmesão</p>
-<button class="botao"
-onclick="adicionarAoCarrinho('Nhoque ',30.00)">
-750ml - R$ 30,00
-</button>
-</div>
-    
-<h2>🍱 Monte Sua Marmita</h2>
-
-<button class="botao" onclick="adicionarAoCarrinho('Marmita 500ml',17.90)">
-500ml - R$17,90
-</button>
-
-<button class="botao" onclick="adicionarAoCarrinho('Marmita 750ml',24.90)">
-750ml - R$24,90
-</button>
-
-<h3>Escolha um Molho</h3>
-
-<button class="botao" onclick="adicionarAoCarrinho('Molho Branco',0)">
-Branco
-</button>
-
-<button class="botao" onclick="adicionarAoCarrinho('Molho Sugo',0)">
-Sugo
-</button>
-
-<button class="botao" onclick="adicionarAoCarrinho('Molho Bolonhesa',0)">
-Bolonhesa
-</button>
-
-<button class="botao" onclick="adicionarAoCarrinho('Molho Cheddar',0)">
-Cheddar
-</button>
-
-<h3>Escolha um Macarrão</h3>
-
-<button class="botao" onclick="adicionarAoCarrinho('Espaguete',0)">
-Espaguete
-</button>
-
-<button class="botao" onclick="adicionarAoCarrinho('Talharim',0)">
-Talharim
-</button>
-
-<button class="botao" onclick="adicionarAoCarrinho('Parafuso',0)">
-Parafuso
-</button>
-
-<button class="botao" onclick="adicionarAoCarrinho('Penne',0)">
-Penne
-</button>
-
-<h3>Escolha uma Proteína</h3>
-
-<button class="botao" onclick="adicionarAoCarrinho('Carne Moída',0)">
-Carne Moída
-</button>
-
-<button class="botao" onclick="adicionarAoCarrinho('Frango Desfiado',0)">
-Frango Desfiado
-</button>
-
-<button class="botao" onclick="adicionarAoCarrinho('Calabresa',0)">
-Calabresa
-</button>
-
-<button class="botao" onclick="adicionarAoCarrinho('Bacon em Cubos',0)">
-Bacon em Cubos
-</button>
-
-<button class="botao" onclick="adicionarAoCarrinho('Presunto em Cubos',0)">
-Presunto em Cubos
-</button>
-
-<h3>Escolha até cinco Complementos</h3>
-
-<button class="botao" onclick="adicionarAoCarrinho('Milho Verde',0)">
-Milho Verde
-</button>
-
-<button class="botao" onclick="adicionarAoCarrinho('Brócolis',0)">
-Brócolis
-</button>
-
-<button class="botao" onclick="adicionarAoCarrinho('Ervilha',0)">
-Ervilha
-</button>
-
-<button class="botao" onclick="adicionarAoCarrinho('Tomate Cereja',0)">
-Tomate Cereja
-</button>
-
-<button class="botao" onclick="adicionarAoCarrinho('Tomate Seco',0)">
-Tomate Seco
-</button>
-
-<button class="botao" onclick="adicionarAoCarrinho('Azeitona Fatiada',0)">
-Azeitona Fatiada
-</button>
-
-<button class="botao" onclick="adicionarAoCarrinho('Cebola Picada',0)">
-Cebola Picada
-</button>
-
-<button class="botao" onclick="adicionarAoCarrinho('Champignon Fatiado',0)">
-Champignon Fatiado
-</button>
-
-<button class="botao" onclick="adicionarAoCarrinho('Cenoura Ralada',0)">
-Cenoura Ralada
-</button>
-
-<button class="botao" onclick="adicionarAoCarrinho('Grão de Bico',0)">
-Grão de Bico
-</button>
-
-<h3>Escolha uma Finalização</h3>
-
-<button class="botao" onclick="adicionarAoCarrinho('Mussarela Ralada',0)">
-Mussarela Ralada
-</button>
-
-<button class="botao" onclick="adicionarAoCarrinho('Parmesão Ralado',0)">
-Parmesão Ralado
-</button>
-
-<h3>Escolha um Tempero Final</h3>
-
-<button class="botao" onclick="adicionarAoCarrinho('Orégano',0)">
-Orégano
-</button>
-
-<button class="botao" onclick="adicionarAoCarrinho('Cheiro Verde',0)">
-Cheiro Verde
-</button>
-
-</section>
-    
-    <section>
-
-<h2>📋 Dados do Cliente</h2>
-
-<div class="card">
-
-<input
-id="nome"
-type="text"
-placeholder="Seu nome"
-style="width:90%;padding:12px;margin:5px;">
-
-<input
-id="telefoneCliente"
-type="tel"
-placeholder="Telefone"
-style="width:90%;padding:12px;margin:5px;">
-
-<input
-id="endereco"
-type="text"
-placeholder="Endereço para entrega"
-style="width:90%;padding:12px;margin:5px;">
-
-<select
-id="bairro"
-style="width:90%;padding:12px;margin:5px;">
-
-<option value="0">Selecione seu bairro</option>
-<option value="2">Santa Cruz (+ R$ 2,00)</option>
-<option value="5">Taquacetuba (+ R$ 5,00)</option>
-<option value="5">Água Limpa (+ R$ 5,00)</option>
-<option value="5">Tatetos (+ R$ 5,00)</option>
-<option value="5">Matarazo (+ R$ 5,00)</option>
-<option value="3">Cinderela (+ R$ 3,00)</option>
-<option value="0">Retirar (+ R$ 0,00)</option>
-</select>
-
-<select
-id="pagamento"
-style="width:90%;padding:12px;margin:5px;">
-
-<option value="">Forma de pagamento</option>
-<option>Pix</option>
-<option>Dinheiro</option>
-<option>Cartão Débito</option>
-<option>Cartão Crédito</option>
-
-</select>
-
-</div>
-
-</section>
-    <div id="carrinho">
-    <h2>🛒 Carrinho</h2>
-
-    <div id="itensCarrinho"></div>
-
-    <p id="total">Total: R$ 0,00</p>
-
-    <a id="linkWhatsapp"
-       class="whatsapp"
-       target="_blank">
-       Finalizar Pedido no WhatsApp
     </a>
-</div>
 
-<script>
+</section>
 
-let carrinho = [];
-let total = 0;
-let taxaEntrega = 0;
+<section id="sugestoes">
 
-function selecionarBairro() {
-    taxaEntrega = parseFloat(
-        document.getElementById("bairro").value
-    ) || 0;
+    <h2>⭐ Sugestões da Casa</h2>
 
-    atualizarCarrinho();
-    atualizarWhatsapp();
-}
-
-function adicionarAoCarrinho(nome, preco){
-
-    if(nome.includes("Marmita")){
-
-        carrinho = carrinho.filter(item =>
-            !item.nome.includes("Marmita")
-        );
-
-        total = carrinho.reduce(
-            (soma,item) => soma + item.preco,
-            0
-        );
-    }
-
-    carrinho.push({
-        nome,
-        preco
-    });
-
-    total += preco;
-
-    atualizarCarrinho();
-    atualizarWhatsapp();
-}
-
-function atualizarCarrinho(){
-
-    let lista =
-    document.getElementById("itensCarrinho");
-
-    lista.innerHTML = "";
-
-    carrinho.forEach(item => {
-
-        lista.innerHTML += `<p>${item.nome}</p>`;
-
-    });
-
-    let totalFinal = total + taxaEntrega;
-
-    document.getElementById("total").innerHTML =
-    "Total: R$ " + totalFinal.toFixed(2);
-}
-
-function atualizarWhatsapp(){
-
-    let mensagem =
-    "🍝 *Pedido Cantinho das Massas*\n\n";
-
-    carrinho.forEach(item => {
-        mensagem += "• " + item.nome + "\n";
-    });
-
-    mensagem +=
-    "\n👤 Cliente: " +
-    document.getElementById("nome").value +
-
-    "\n📞 Telefone: " +
-    document.getElementById("telefoneCliente").value +
-
-    "\n📍 Endereço: " +
-    document.getElementById("endereco").value +
-
-    "\n💳 Pagamento: " +
-    document.getElementById("pagamento").value +
-
-    "\n🚚 Taxa de Entrega: R$ " +
-    taxaEntrega.toFixed(2) +
-
-    "\n\n💰 Total: R$ " +
-    (total + taxaEntrega).toFixed(2);
-
-    document.getElementById("linkWhatsapp").href =
-    "https://wa.me/5511978169676?text=" +
-    encodeURIComponent(mensagem);
-}
-
-document.getElementById("nome")
-    .addEventListener("input", atualizarWhatsapp);
-
-document.getElementById("telefoneCliente")
-    .addEventListener("input", atualizarWhatsapp);
-
-document.getElementById("endereco")
-    .addEventListener("input", atualizarWhatsapp);
-
-document.getElementById("pagamento")
-    .addEventListener("change", atualizarWhatsapp);
-
-document.getElementById("bairro")
-    .addEventListener("change", selecionarBairro);
-
-</script>
-    </body>
-    </html>
+    <div class="cards">
