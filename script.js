@@ -38,3 +38,68 @@ proteinaExtra.addEventListener("change", atualizarValor);
 // Inicia
 
 atualizarValor();
+
+// =======================
+// CARRINHO
+// =======================
+
+let carrinho = [];
+
+const listaCarrinho = document.getElementById("listaCarrinho");
+const totalCarrinho = document.getElementById("totalCarrinho");
+
+const botoes = document.querySelectorAll(".btn-adicionar");
+
+botoes.forEach((botao) => {
+
+    botao.addEventListener("click", function () {
+
+        const card = this.closest(".card");
+
+        let nome = "Marmita";
+
+        if (card) {
+            nome = card.querySelector("h3").innerText;
+        }
+
+        carrinho.push({
+            nome: nome,
+            preco: 0
+        });
+
+        atualizarCarrinho();
+
+    });
+
+});
+
+function atualizarCarrinho() {
+
+    listaCarrinho.innerHTML = "";
+
+    if (carrinho.length === 0) {
+
+        listaCarrinho.innerHTML =
+            '<p class="carrinho-vazio">Seu carrinho está vazio.</p>';
+
+        totalCarrinho.innerHTML = "R$ 0,00";
+
+        return;
+
+    }
+
+    carrinho.forEach((item) => {
+
+        listaCarrinho.innerHTML += `
+
+            <div class="carrinho-item">
+
+                <span>${item.nome}</span>
+
+            </div>
+
+        `;
+
+    });
+
+}
