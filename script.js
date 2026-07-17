@@ -103,3 +103,26 @@ function atualizarCarrinho() {
     });
 
 }
+
+// =======================
+// BOTÃO DA MARMITA
+// =======================
+
+const btnMarmita = document.getElementById("btnMarmita");
+
+if (btnMarmita) {
+
+    btnMarmita.addEventListener("click", function () {
+
+        const tamanhoSelecionado = document.getElementById("tamanho").value;
+
+        if (tamanhoSelecionado === "") {
+            alert("Selecione o tamanho da marmita.");
+            return;
+        }
+
+        alert("Em breve esta marmita será adicionada ao carrinho!");
+
+    });
+
+}
