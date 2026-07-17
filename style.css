@@ -365,3 +365,63 @@ h2{
     color:#666;
 
 }
+
+/* ---------------- CARRINHO ---------------- */
+
+.carrinho{
+
+    margin-top:50px;
+    background:#fff;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.carrinho h2{
+
+    margin-bottom:20px;
+
+}
+
+.carrinho-item{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:12px 0;
+
+    border-bottom:1px solid #eee;
+
+}
+
+.carrinho-item:last-child{
+
+    border:none;
+
+}
+
+.resumo-carrinho{
+
+    margin-top:20px;
+
+    text-align:right;
+
+}
+
+#totalCarrinho{
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    color:#d62828;
+
+}
+
+.carrinho-vazio{
+
+    color:#888;
+
+}
