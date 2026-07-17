@@ -1,70 +1,34 @@
-let carrinho = [];
+// Elementos
 
-let molhoSelecionado = "";
-let macarraoSelecionado = "";
-let taxaEntrega = 0;
+const tamanho = document.getElementById("tamanho");
+const proteinaExtra = document.getElementById("proteinaExtra");
+const valorTotal = document.getElementById("valorTotal");
 
-function adicionarAoCarrinho(item, preco) {
+// Atualiza o valor da marmita
 
-    carrinho = [{
-        nome: item,
-        preco: preco
-    }];
+function atualizarValor(){
 
-    atualizarCarrinho();
-}
+    let total = 17.90;
 
-function selecionarMolho(molho){
-
-    molhoSelecionado = molho;
-
-    atualizarCarrinho();
-}
-
-function selecionarMacarrao(macarrao){
-
-    macarraoSelecionado = macarrao;
-
-    atualizarCarrinho();
-}
-
-function selecionarBairro(valor){
-
-    taxaEntrega = parseFloat(valor);
-
-    atualizarCarrinho();
-}
-
-function atualizarCarrinho() {
-
-    let lista = document.getElementById("lista-carrinho");
-
-    let total = 0;
-
-    lista.innerHTML = "";
-
-    if(macarraoSelecionado !== ""){
-        lista.innerHTML += "<p>🍝 Macarrão: " + macarraoSelecionado + "</p>";
+    if(tamanho.value === "750 ml"){
+        total = 24.90;
     }
 
-    if(molhoSelecionado !== ""){
-        lista.innerHTML += "<p>🍅 Molho: " + molhoSelecionado + "</p>";
+    if(proteinaExtra.value !== "Nenhuma"){
+        total += 3;
     }
 
-    carrinho.forEach(function(item){
+    valorTotal.innerHTML =
+        "R$ " + total.toFixed(2).replace(".", ",");
 
-        lista.innerHTML += "<p>✓ " + item.nome + "</p>";
-
-        total += item.preco;
-
-    });
-
-    if(taxaEntrega > 0){
-        lista.innerHTML += "<p>🚚 Taxa de entrega: R$ " + taxaEntrega.toFixed(2).replace(".", ",") + "</p>";
-
-        total += taxaEntrega;
-    }
-
-    document.getElementById("total").innerHTML =
-        "Total: R$ " + total.toFixed(2).replace(".", ",");
 }
+
+// Eventos
+
+tamanho.addEventListener("change", atualizarValor);
+
+proteinaExtra.addEventListener("change", atualizarValor);
+
+// Inicia
+
+atualizarValor();
