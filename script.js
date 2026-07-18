@@ -88,19 +88,25 @@ function atualizarCarrinho() {
 
     }
 
-    carrinho.forEach((item) => {
+  let total = 0;
 
-        listaCarrinho.innerHTML += `
+carrinho.forEach((item) => {
 
-            <div class="carrinho-item">
+    total += item.preco;
 
-                <span>${item.nome}</span>
+    listaCarrinho.innerHTML += `
 
-            </div>
+        <div class="carrinho-item">
+            <span>${item.nome}</span>
+            <strong>R$ ${item.preco.toFixed(2).replace(".", ",")}</strong>
+        </div>
 
-        `;
+    `;
 
-    });
+});
+
+totalCarrinho.innerHTML =
+    "R$ " + total.toFixed(2).replace(".", ",");
 
 }
 
@@ -112,17 +118,32 @@ const btnMarmita = document.getElementById("btnMarmita");
 
 if (btnMarmita) {
 
-    btnMarmita.addEventListener("click", function () {
+   btnMarmita.addEventListener("click", function () {
 
-        const tamanhoSelecionado = document.getElementById("tamanho").value;
+    const tamanhoSelecionado = document.getElementById("tamanho").value;
 
-        if (tamanhoSelecionado === "") {
-            alert("Selecione o tamanho da marmita.");
-            return;
-        }
+    if (tamanhoSelecionado === "") {
+        alert("Selecione o tamanho da marmita.");
+        return;
+    }
 
-        alert("Em breve esta marmita será adicionada ao carrinho!");
+    let preco = 0;
 
+    if (tamanhoSelecionado === "500") {
+        preco = 17.90;
+    }
+
+    if (tamanhoSelecionado === "750") {
+        preco = 24.90;
+    }
+
+    carrinho.push({
+        nome: "Monte sua Marmita " + tamanhoSelecionado + " ml",
+        preco: preco
     });
+
+    atualizarCarrinho();
+
+});
 
 }
