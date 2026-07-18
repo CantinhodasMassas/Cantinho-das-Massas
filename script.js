@@ -119,7 +119,7 @@ function atualizarCarrinho() {
         total += item.valor;
 
 
-        const li = document.createElement("li");
+        const li = document.createElement("div");
 
 
         li.innerHTML = `
