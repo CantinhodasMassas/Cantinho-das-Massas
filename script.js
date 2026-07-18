@@ -5,10 +5,10 @@
 const tamanho = document.getElementById("tamanho");
 const proteinaExtra = document.getElementById("proteinaExtra");
 const valorTotal = document.getElementById("valorTotal");
-
 const listaCarrinho = document.getElementById("listaCarrinho");
 const totalCarrinho = document.getElementById("totalCarrinho");
 const btnMarmita = document.getElementById("btnMarmita");
+console.log(btnMarmita);
 const massa = document.getElementById("massa");
 const molho = document.getElementById("molho");
 const proteina = document.getElementById("proteina");
