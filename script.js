@@ -177,6 +177,7 @@ function removerItem(index) {
 
     carrinho.splice(index, 1);
 
-    atualizarCarrinho();
+       atualizarCarrinho();
 
+});
 }
