@@ -9,7 +9,12 @@ const valorTotal = document.getElementById("valorTotal");
 const listaCarrinho = document.getElementById("listaCarrinho");
 const totalCarrinho = document.getElementById("totalCarrinho");
 const btnMarmita = document.getElementById("btnMarmita");
-
+const massa = document.getElementById("massa");
+const molho = document.getElementById("molho");
+const proteina = document.getElementById("proteina");
+const finalizacao = document.getElementById("finalizacao");
+const tempero = document.getElementById("tempero");
+const observacoes = document.getElementById("observacoes");
 let carrinho = [];
 
 // =======================
