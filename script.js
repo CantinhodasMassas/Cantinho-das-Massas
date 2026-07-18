@@ -67,25 +67,6 @@ function atualizarCarrinho() {
 
     }
 
-    let total = 0;
-
-    carrinho.forEach((item) => {
-
-        total += item.preco;
-
-        listaCarrinho.innerHTML += `
-            <div class="carrinho-item">
-                <span>${item.nome}</span>
-                <strong>R$ ${item.preco.toFixed(2).replace(".", ",")}</strong>
-            </div>
-        `;
-
-    });
-
-    totalCarrinho.innerHTML =
-        "R$ " + total.toFixed(2).replace(".", ",");
-
-}
 
 // =======================
 // BOTÃO DA MARMITA
