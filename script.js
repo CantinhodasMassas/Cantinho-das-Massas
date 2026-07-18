@@ -103,12 +103,6 @@ btnMarmita.addEventListener("click", function () {
     carrinho.push(marmita);
 
 
-    atualizarCarrinho();
-
-});
-});
-
-
 // =======================
 // MOSTRAR CARRINHO
 // =======================
@@ -129,15 +123,39 @@ function atualizarCarrinho() {
 
 
         li.innerHTML = `
-        Marmita ${item.tamanho}
-        ${item.proteinaExtra !== "Nenhuma" 
-        ? " + Proteína extra" 
-        : ""}
-        - R$ ${item.valor.toFixed(2).replace(".", ",")}
+
+        <strong>Marmita ${item.tamanho}</strong><br>
+
+        🍝 Massa: ${item.massa}<br>
+
+        🍅 Molho: ${item.molho}<br>
+
+        🥩 Proteína: ${item.proteina}<br>
+
+        ${
+        item.proteinaExtra !== "Nenhuma"
+        ? "➕ Segunda proteína: " + item.proteinaExtra + "<br>"
+        : ""
+        }
+
+        🧀 Finalização: ${item.finalizacao}<br>
+
+        🌿 Tempero: ${item.tempero}<br>
+
+        ${
+        item.observacoes
+        ? "📝 Observação: " + item.observacoes + "<br>"
+        : ""
+        }
+
+        💰 R$ ${item.valor.toFixed(2).replace(".", ",")}
 
         <button onclick="removerItem(${index})">
-        X
+        ❌
         </button>
+
+        <hr>
+
         `;
 
 
@@ -147,9 +165,10 @@ function atualizarCarrinho() {
 
 
     totalCarrinho.innerHTML =
-        "Total: R$ " +
-        total.toFixed(2).replace(".", ",");
+    "Total do pedido: R$ " +
+    total.toFixed(2).replace(".", ",");
 
+}
 }
 
 
