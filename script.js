@@ -179,3 +179,77 @@ function removerItem(index) {
     atualizarCarrinho();
 
 }
+
+// =======================
+// ADICIONAR SUGESTÕES, NHOQUE E COMBOS
+// =======================
+
+const botoesProdutos = document.querySelectorAll(".btn-adicionar");
+
+botoesProdutos.forEach((botao) => {
+
+    botao.addEventListener("click", function () {
+
+        const card = botao.closest(".card");
+
+        const nome = card.querySelector("h3").innerText;
+
+        const descricao = card.querySelector("p").innerText;
+
+        let valor = 0;
+        let tamanho = "";
+
+
+        // verifica tamanho escolhido
+        const radioSelecionado = card.querySelector("input[type='radio']:checked");
+
+
+        if (radioSelecionado) {
+
+            valor = Number(radioSelecionado.value);
+
+            tamanho = radioSelecionado.parentElement.innerText;
+
+            tamanho = tamanho.split(" ")[0];
+
+        } 
+
+
+        // produtos sem radio (combos)
+        if (!valor) {
+
+            const precoTexto = card.querySelector(".preco").innerText;
+
+            valor = Number(
+                precoTexto
+                .replace("R$", "")
+                .replace(",", ".")
+            );
+
+        }
+
+
+        const produto = {
+
+            tipo: "produto",
+
+            nome:
+            nome + 
+            (tamanho ? " " + tamanho : ""),
+
+            descricao: descricao,
+
+            valor: valor
+
+        };
+
+
+        carrinho.push(produto);
+
+        atualizarCarrinho();
+
+        alert("Produto adicionado!");
+
+    });
+
+});
