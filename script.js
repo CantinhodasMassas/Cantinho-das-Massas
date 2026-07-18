@@ -8,28 +8,7 @@ const valorTotal = document.getElementById("valorTotal");
 
 function atualizarValor() {
 
-    let total = 0;
-
-    if (tamanho.value === "500") {
-        total = 17.90;
-    }
-
-    if (tamanho.value === "750") {
-        total = 24.90;
-    }
-
-    if (
-        tamanho.value !== "" &&
-        proteinaExtra.value !== "Nenhuma"
-    ) {
-        total += 3;
-    }
-
-    valorTotal.innerHTML =
-        "R$ " + total.toFixed(2).replace(".", ",");
-
-}
-
+   
 // Eventos
 
 tamanho.addEventListener("change", atualizarValor);
