@@ -165,10 +165,7 @@ function atualizarCarrinho() {
 
 
     totalCarrinho.innerHTML =
-    "Total do pedido: R$ " +
-    total.toFixed(2).replace(".", ",");
-
-}
+    "R$ " + total.toFixed(2).replace(".", ",");
 }
 
 
