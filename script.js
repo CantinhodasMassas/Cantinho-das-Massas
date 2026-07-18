@@ -1,107 +1,140 @@
-// Elementos
+// =======================
+// ELEMENTOS
+// =======================
 
 const tamanho = document.getElementById("tamanho");
 const proteinaExtra = document.getElementById("proteinaExtra");
 const valorTotal = document.getElementById("valorTotal");
 
-// Atualiza o valor da marmita
+const listaCarrinho = document.getElementById("listaCarrinho");
+const totalCarrinho = document.getElementById("totalCarrinho");
+const btnMarmita = document.getElementById("btnMarmita");
+
+let carrinho = [];
+
+// =======================
+// VALOR DA MARMITA
+// =======================
 
 function atualizarValor() {
 
-   
-// Eventos
+    let total = 0;
+
+    if (tamanho.value === "500") {
+        total = 17.90;
+    }
+
+    if (tamanho.value === "750") {
+        total = 24.90;
+    }
+
+    if (
+        tamanho.value !== "" &&
+        proteinaExtra.value !== "Nenhuma"
+    ) {
+        total += 3;
+    }
+
+    valorTotal.innerHTML =
+        "R$ " + total.toFixed(2).replace(".", ",");
+
+}
 
 tamanho.addEventListener("change", atualizarValor);
 proteinaExtra.addEventListener("change", atualizarValor);
 
-// Inicia
-
 atualizarValor();
-
 // =======================
-// CARRINHO
+// ADICIONAR MARMITA AO CARRINHO
 // =======================
 
-let carrinho = [];
+btnMarmita.addEventListener("click", function () {
 
-const listaCarrinho = document.getElementById("listaCarrinho");
-const totalCarrinho = document.getElementById("totalCarrinho");
+    if (tamanho.value === "") {
+        alert("Selecione o tamanho da marmita");
+        return;
+    }
 
-const botoes = document.querySelectorAll(".btn-adicionar");
+    const marmita = {
 
-botoes.forEach((botao) => {
+        tamanho:
+            tamanho.options[tamanho.selectedIndex].text,
 
-    botao.addEventListener("click", function () {
+        valor:
+            tamanho.value === "500"
+                ? 17.90
+                : 24.90,
 
-        const card = this.closest(".card");
+        proteinaExtra:
+            proteinaExtra.value
 
-        let nome = "Marmita";
+    };
 
-        if (card) {
-            nome = card.querySelector("h3").innerText;
-        }
 
-        carrinho.push({
-            nome: nome,
-            preco: 0
-        });
+    if (proteinaExtra.value !== "Nenhuma") {
+        marmita.valor += 3;
+    }
 
-        atualizarCarrinho();
 
-    });
+    carrinho.push(marmita);
+
+    atualizarCarrinho();
 
 });
+
+
+// =======================
+// MOSTRAR CARRINHO
+// =======================
 
 function atualizarCarrinho() {
 
     listaCarrinho.innerHTML = "";
 
-    if (carrinho.length === 0) {
-
-        listaCarrinho.innerHTML =
-            '<p class="carrinho-vazio">Seu carrinho está vazio.</p>';
-
-        totalCarrinho.innerHTML = "R$ 0,00";
-
-        return;
-
-    }
+    let total = 0;
 
 
-// =======================
-// BOTÃO DA MARMITA
-// =======================
+    carrinho.forEach((item, index) => {
 
-const btnMarmita = document.getElementById("btnMarmita");
+        total += item.valor;
 
-if (btnMarmita) {
 
-   btnMarmita.addEventListener("click", function () {
+        const li = document.createElement("li");
 
-    const tamanhoSelecionado = document.getElementById("tamanho").value;
 
-    if (tamanhoSelecionado === "") {
-        alert("Selecione o tamanho da marmita.");
-        return;
-    }
+        li.innerHTML = `
+        Marmita ${item.tamanho}
+        ${item.proteinaExtra !== "Nenhuma" 
+        ? " + Proteína extra" 
+        : ""}
+        - R$ ${item.valor.toFixed(2).replace(".", ",")}
 
-    let preco = 0;
+        <button onclick="removerItem(${index})">
+        X
+        </button>
+        `;
 
-    if (tamanhoSelecionado === "500") {
-        preco = 17.90;
-    }
 
-    if (tamanhoSelecionado === "750") {
-        preco = 24.90;
-    }
+        listaCarrinho.appendChild(li);
 
-    carrinho.push({
-        nome: "Monte sua Marmita " + tamanhoSelecionado + " ml",
-        preco: preco
     });
 
-    atualizarCarrinho();
 
-});
+    totalCarrinho.innerHTML =
+        "Total: R$ " +
+        total.toFixed(2).replace(".", ",");
+
+}
+
+
+// =======================
+// REMOVER ITEM
+// =======================
+
+function removerItem(index) {
+
+    carrinho.splice(index, 1);
+
+    atualizarCarrinho();
 
 }
