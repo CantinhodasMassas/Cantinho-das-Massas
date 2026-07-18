@@ -102,7 +102,6 @@ btnMarmita.addEventListener("click", function () {
 
     carrinho.push(marmita);
 
-
 // =======================
 // MOSTRAR CARRINHO
 // =======================
@@ -112,15 +111,12 @@ function atualizarCarrinho() {
     listaCarrinho.innerHTML = "";
 
     let total = 0;
-console.log(carrinho);
 
     carrinho.forEach((item, index) => {
 
         total += item.valor;
 
-
         const li = document.createElement("div");
-
 
         li.innerHTML = `
 
@@ -158,7 +154,6 @@ console.log(carrinho);
 
         `;
 
-
         listaCarrinho.appendChild(li);
 
     });
@@ -166,6 +161,7 @@ console.log(carrinho);
 
     totalCarrinho.innerHTML =
     "R$ " + total.toFixed(2).replace(".", ",");
+
 }
 
 
@@ -177,7 +173,6 @@ function removerItem(index) {
 
     carrinho.splice(index, 1);
 
-       atualizarCarrinho();
+    atualizarCarrinho();
 
-});
 }
