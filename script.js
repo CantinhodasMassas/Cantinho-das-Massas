@@ -102,6 +102,9 @@ btnMarmita.addEventListener("click", function () {
 
     carrinho.push(marmita);
 alert("Marmita adicionada!");
+    atualizarCarrinho();
+
+});
 // =======================
 // MOSTRAR CARRINHO
 // =======================
