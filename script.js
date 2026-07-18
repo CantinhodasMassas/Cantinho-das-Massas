@@ -112,7 +112,7 @@ function atualizarCarrinho() {
     listaCarrinho.innerHTML = "";
 
     let total = 0;
-
+console.log(carrinho);
 
     carrinho.forEach((item, index) => {
 
