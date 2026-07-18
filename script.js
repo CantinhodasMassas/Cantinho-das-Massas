@@ -60,18 +60,37 @@ btnMarmita.addEventListener("click", function () {
         return;
     }
 
+
     const marmita = {
 
         tamanho:
             tamanho.options[tamanho.selectedIndex].text,
 
-        valor:
-            tamanho.value === "500"
-                ? 17.90
-                : 24.90,
+        massa:
+            massa.value,
+
+        molho:
+            molho.value,
+
+        proteina:
+            proteina.value,
 
         proteinaExtra:
-            proteinaExtra.value
+            proteinaExtra.value,
+
+        finalizacao:
+            finalizacao.value,
+
+        tempero:
+            tempero.value,
+
+        observacoes:
+            observacoes.value,
+
+        valor:
+            tamanho.value === "500"
+            ? 17.90
+            : 24.90
 
     };
 
@@ -83,8 +102,10 @@ btnMarmita.addEventListener("click", function () {
 
     carrinho.push(marmita);
 
+
     atualizarCarrinho();
 
+});
 });
 
 
