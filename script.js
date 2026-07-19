@@ -260,3 +260,4 @@ botoesProdutos.forEach((botao) => {
     });
 
 });
+alert("script carregado");
