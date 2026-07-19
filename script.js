@@ -2,8 +2,6 @@
 // ELEMENTOS
 // =======================
 
-const btnFinalizar = document.getElementById("btnFinalizar");
-console.log("Botão finalizar clicado");
 const tamanho = document.getElementById("tamanho");
 const proteinaExtra = document.getElementById("proteinaExtra");
 const valorTotal = document.getElementById("valorTotal");
@@ -17,9 +15,9 @@ const proteina = document.getElementById("proteina");
 const finalizacao = document.getElementById("finalizacao");
 const tempero = document.getElementById("tempero");
 const observacoes = document.getElementById("observacoes");
-let carrinho = [];
 const btnFinalizar = document.getElementById("btnFinalizar");
-console.log(btnFinalizar);
+
+let carrinho = [];
 
 // =======================
 // VALOR DA MARMITA
@@ -293,6 +291,7 @@ botoesProdutos.forEach((botao) => {
 // FINALIZAR PEDIDO WHATSAPP
 // =======================
 
+alert("cheguei no finalizar");
 btnFinalizar.addEventListener("click", function () {
 
     if (carrinho.length === 0) {
