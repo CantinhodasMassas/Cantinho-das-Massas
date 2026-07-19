@@ -284,5 +284,41 @@ botoesProdutos.forEach((botao) => {
 
     });
 
+// =======================
+// FINALIZAR PEDIDO WHATSAPP
+// =======================
+
+const btnFinalizar = document.getElementById("btnFinalizar");
+
+btnFinalizar.addEventListener("click", function () {
+
+    if (carrinho.length === 0) {
+        alert("Seu carrinho está vazio!");
+        return;
+    }
+
+    let mensagem = "🍝 *Pedido Cantinho das Massas*%0A%0A";
+
+    let total = 0;
+
+    carrinho.forEach(item => {
+
+        mensagem += "🍝 " + item.nome + "%0A";
+        mensagem += item.descricao + "%0A";
+        mensagem += "💰 R$ " + item.valor.toFixed(2).replace(".", ",") + "%0A%0A";
+
+        total += item.valor;
+
+    });
+
+    mensagem += "💰 *Total: R$ " + total.toFixed(2).replace(".", ",") + "*";
+
+    const numeroWhatsApp = "5511978169676";
+
+    window.open(
+        "https://wa.me/" + numeroWhatsApp + "?text=" + mensagem,
+        "_blank"
+    );
+
 });
 alert("script carregado");
