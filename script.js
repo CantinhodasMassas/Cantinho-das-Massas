@@ -116,7 +116,31 @@ function atualizarCarrinho() {
     let total = 0;
 
     carrinho.forEach((item, index) => {
+if (item.tipo === "produto") {
 
+const li = document.createElement("div");
+
+li.innerHTML = `
+
+<strong>${item.nome}</strong><br>
+
+${item.descricao}<br>
+
+💰 R$ ${item.valor.toFixed(2).replace(".", ",")}
+
+<button onclick="removerItem(${index})">
+❌
+</button>
+
+<hr>
+
+`;
+
+listaCarrinho.appendChild(li);
+
+return;
+
+}
         total += item.valor;
 
         const li = document.createElement("div");
