@@ -67,37 +67,6 @@ btnMarmita.addEventListener("click", function () {
 
     tipo: "marmita",
 
-    tamanho:
-        tamanho.options[tamanho.selectedIndex].text,
-
-    massa:
-        massa.value,
-
-    molho:
-        molho.value,
-
-    proteina:
-        proteina.value,
-
-    proteinaExtra:
-        proteinaExtra.value,
-
-    finalizacao:
-        finalizacao.value,
-
-    tempero:
-        tempero.value,
-
-    observacoes:
-        observacoes.value,
-
-    valor:
-        tamanho.value === "500"
-            ? 17.90
-            : 24.90
-
-};
-
         tamanho:
             tamanho.options[tamanho.selectedIndex].text,
 
