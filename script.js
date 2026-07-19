@@ -134,7 +134,7 @@ btnMarmita.addEventListener("click", function () {
         marmita.valor += 3;
     }
 
-
+console.log(marmita);
     carrinho.push(marmita);
 alert("Marmita adicionada!");
     atualizarCarrinho();
