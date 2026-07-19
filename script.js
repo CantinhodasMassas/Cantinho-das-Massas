@@ -63,7 +63,40 @@ btnMarmita.addEventListener("click", function () {
     }
 
 
-    const marmita = {
+   const marmita = {
+
+    tipo: "marmita",
+
+    tamanho:
+        tamanho.options[tamanho.selectedIndex].text,
+
+    massa:
+        massa.value,
+
+    molho:
+        molho.value,
+
+    proteina:
+        proteina.value,
+
+    proteinaExtra:
+        proteinaExtra.value,
+
+    finalizacao:
+        finalizacao.value,
+
+    tempero:
+        tempero.value,
+
+    observacoes:
+        observacoes.value,
+
+    valor:
+        tamanho.value === "500"
+            ? 17.90
+            : 24.90
+
+};
 
         tamanho:
             tamanho.options[tamanho.selectedIndex].text,
@@ -301,14 +334,37 @@ btnFinalizar.addEventListener("click", function () {
 
     let mensagem = "🍝 Pedido Cantinho das Massas%0A%0A";
 
-    carrinho.forEach(item => {
+carrinho.forEach(item => {
+
+    if (item.tipo === "marmita") {
+
+        mensagem += "🍝 Monte sua Marmita - " + item.tamanho + "%0A";
+        mensagem += "🍝 Massa: " + item.massa + "%0A";
+        mensagem += "🍅 Molho: " + item.molho + "%0A";
+        mensagem += "🥩 Proteína: " + item.proteina + "%0A";
+
+        if (item.proteinaExtra !== "Nenhuma") {
+            mensagem += "➕ Segunda proteína: " + item.proteinaExtra + "%0A";
+        }
+
+        mensagem += "🧀 Finalização: " + item.finalizacao + "%0A";
+        mensagem += "🌿 Tempero: " + item.tempero + "%0A";
+
+        if (item.observacoes) {
+            mensagem += "📝 Observações: " + item.observacoes + "%0A";
+        }
+
+        mensagem += "💰 R$ " + item.valor.toFixed(2).replace(".", ",") + "%0A%0A";
+
+    } else {
 
         mensagem += "• " + item.nome + "%0A";
         mensagem += item.descricao + "%0A";
         mensagem += "💰 R$ " + item.valor.toFixed(2).replace(".", ",") + "%0A%0A";
 
-    });
+    }
 
+});
     mensagem += "💰 Total: R$ " + totalCarrinho.innerText.replace("R$", "");
 
     const numeroWhatsApp = "5511978169676";
