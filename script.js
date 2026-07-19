@@ -189,7 +189,7 @@ console.log("Quantidade de botões encontrados:", botoesProdutos.length);
 botoesProdutos.forEach((botao) => {
 
     botao.addEventListener("click", function () {
-
+    console.log("Botão clicado");
         const card = botao.closest(".card");
 
         const nome = card.querySelector("h3").innerText;
