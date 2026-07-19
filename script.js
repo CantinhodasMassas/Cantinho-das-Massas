@@ -194,45 +194,42 @@ botoesProdutos.forEach((botao) => {
 
         const nome = card.querySelector("h3").innerText;
 
-        const descricao = card.querySelector("p").innerText;
+        const descricao = card.querySelector("p")
+        ? card.querySelector("p").innerText
+        : "";
 
         let valor = 0;
-        let tamanho = "";
+        let tamanhoProduto = "";
 
 
-        // verifica tamanho escolhido
-        const radioSelecionado = card.querySelector("input[type='radio']:checked");
+        // Verifica se existe escolha de tamanho
+        const radio = card.querySelector("input[type='radio']:checked");
 
 
-        const radios = card.querySelectorAll("input[type='radio']");
+        if (radio) {
 
-if (radios.length > 0) {
+            valor = Number(radio.value);
 
-    let radioSelecionado = card.querySelector("input[type='radio']:checked");
+            tamanhoProduto = radio.parentElement.innerText
+            .trim();
 
-    if (!radioSelecionado) {
-        alert("Selecione o tamanho.");
-        return;
-    }
+        } 
+        
+        else {
 
-    valor = Number(radioSelecionado.value);
+            // Busca qualquer preço dentro do card
+            const textoCard = card.innerText;
 
-    tamanho = radioSelecionado.parentElement.innerText
-        .trim()
-        .split(" ")[0];
-}
+            const encontrado = textoCard.match(/(\d+,\d{2})/);
 
+            if (encontrado) {
 
-        // produtos sem radio (combos)
-        if (!valor) {
+                valor = Number(
+                    encontrado[1]
+                    .replace(",", ".")
+                );
 
-            const precoTexto = card.querySelector(".preco").innerText;
-
-            valor = Number(
-                precoTexto
-                .replace("R$", "")
-                .replace(",", ".")
-            );
+            }
 
         }
 
@@ -242,8 +239,10 @@ if (radios.length > 0) {
             tipo: "produto",
 
             nome:
-            nome + 
-            (tamanho ? " " + tamanho : ""),
+            nome +
+            (tamanhoProduto
+            ? " - " + tamanhoProduto
+            : ""),
 
             descricao: descricao,
 
