@@ -321,4 +321,6 @@ btnFinalizar.addEventListener("click", function () {
     );
 
 });
+
+});
 alert("script carregado");
