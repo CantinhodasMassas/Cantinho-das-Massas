@@ -16,6 +16,8 @@ const finalizacao = document.getElementById("finalizacao");
 const tempero = document.getElementById("tempero");
 const observacoes = document.getElementById("observacoes");
 let carrinho = [];
+const btnFinalizar = document.getElementById("btnFinalizar");
+console.log(btnFinalizar);
 
 // =======================
 // VALOR DA MARMITA
