@@ -177,7 +177,17 @@ h2{
 .tamanhos input{
     margin-right:8px;
 }
+.acompanhamentos label{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:8px;
+    padding:8px 0;
+}
 
+.acompanhamentos input{
+    margin:0;
+}
 /* ================= BOTÕES ================= */
 
 .btn-adicionar,
