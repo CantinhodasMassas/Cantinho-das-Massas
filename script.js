@@ -185,7 +185,7 @@ function removerItem(index) {
 // =======================
 
 const botoesProdutos = document.querySelectorAll(".btn-adicionar");
-
+console.log("Quantidade de botões encontrados:", botoesProdutos.length);
 botoesProdutos.forEach((botao) => {
 
     botao.addEventListener("click", function () {
