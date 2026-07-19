@@ -138,11 +138,12 @@ ${item.descricao}<br>
 
 listaCarrinho.appendChild(li);
 
+total += item.valor;
+
 return;
 
 }
-        total += item.valor;
-
+total += item.valor;
         const li = document.createElement("div");
 
         li.innerHTML = `
