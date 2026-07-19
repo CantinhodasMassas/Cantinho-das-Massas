@@ -294,6 +294,8 @@ botoesProdutos.forEach((botao) => {
 alert("cheguei no finalizar");
 btnFinalizar.addEventListener("click", function () {
 
+    alert("cliquei no finalizar");
+    
     if (carrinho.length === 0) {
         alert("Seu carrinho está vazio!");
         return;
