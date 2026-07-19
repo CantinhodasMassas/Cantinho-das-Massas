@@ -204,15 +204,23 @@ botoesProdutos.forEach((botao) => {
         const radioSelecionado = card.querySelector("input[type='radio']:checked");
 
 
-        if (radioSelecionado) {
+        const radios = card.querySelectorAll("input[type='radio']");
 
-            valor = Number(radioSelecionado.value);
+if (radios.length > 0) {
 
-            tamanho = radioSelecionado.parentElement.innerText;
+    let radioSelecionado = card.querySelector("input[type='radio']:checked");
 
-            tamanho = tamanho.split(" ")[0];
+    if (!radioSelecionado) {
+        alert("Selecione o tamanho.");
+        return;
+    }
 
-        } 
+    valor = Number(radioSelecionado.value);
+
+    tamanho = radioSelecionado.parentElement.innerText
+        .trim()
+        .split(" ")[0];
+}
 
 
         // produtos sem radio (combos)
