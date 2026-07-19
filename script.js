@@ -4,7 +4,6 @@
 
 const btnFinalizar = document.getElementById("btnFinalizar");
 console.log("Botão finalizar clicado");
-console.log(btnFinalizar);
 const tamanho = document.getElementById("tamanho");
 const proteinaExtra = document.getElementById("proteinaExtra");
 const valorTotal = document.getElementById("valorTotal");
