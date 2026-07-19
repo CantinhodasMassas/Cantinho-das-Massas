@@ -291,10 +291,8 @@ botoesProdutos.forEach((botao) => {
 // FINALIZAR PEDIDO WHATSAPP
 // =======================
 
-alert("cheguei no finalizar");
 btnFinalizar.addEventListener("click", function () {
 
-    alert("cliquei no finalizar");
     
     if (carrinho.length === 0) {
         alert("Seu carrinho está vazio!");
@@ -313,7 +311,7 @@ btnFinalizar.addEventListener("click", function () {
 
     mensagem += "💰 Total: R$ " + totalCarrinho.innerText.replace("R$", "");
 
-    const numeroWhatsApp = "COLOQUE_SEU_NUMERO_AQUI";
+    const numeroWhatsApp = "5511978169676";
 
     window.open(
         "https://wa.me/" + numeroWhatsApp + "?text=" + mensagem,
