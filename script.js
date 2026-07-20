@@ -295,75 +295,92 @@ botoesProdutos.forEach((botao) => {
 
 btnFinalizar.addEventListener("click", function () {
 
-    const nome = document.getElementById("nome").value.trim();
-const telefone = document.getElementById("telefone").value.trim();
-const bairro = document.getElementById("bairro").value;
-const endereco = document.getElementById("endereco").value.trim();
-const pagamento = document.getElementById("pagamento").value;
-
-    
     if (carrinho.length === 0) {
         alert("Seu carrinho está vazio!");
         return;
     }
 
-    if (!nome || !telefone || !bairro || !endereco || !pagamento) {
-    alert("Preencha todos os dados do cliente.");
-    return;
-}
-    let mensagem = "🍝 Pedido Cantinho das Massas%0A%0A";
+    // ===========================
+    // DADOS DO CLIENTE
+    // ===========================
 
-carrinho.forEach(item => {
-   
-    console.log(item);
+    const nome = document.getElementById("nomeCliente").value.trim();
+    const telefone = document.getElementById("telefoneCliente").value.trim();
+    const bairroSelecionado = document.getElementById("bairroCliente").value;
+    const endereco = document.getElementById("enderecoCliente").value.trim();
+    const pagamento = document.getElementById("pagamentoCliente").value;
 
-   if (item.tipo === "marmita") {
-
-    mensagem += "🍝 Monte sua Marmita - " + item.tamanho + "%0A";
-    mensagem += "🍝 Massa: " + item.massa + "%0A";
-    mensagem += "🍅 Molho: " + item.molho + "%0A";
-    mensagem += "🥩 Proteína: " + item.proteina + "%0A";
-
-    if (item.proteinaExtra !== "Nenhuma") {
-        mensagem += "➕ Segunda proteína: " + item.proteinaExtra + "%0A";
+    if (!nome || !telefone || !bairroSelecionado || !endereco || !pagamento) {
+        alert("Preencha todos os dados do cliente.");
+        return;
     }
 
-    mensagem += "🧀 Finalização: " + item.finalizacao + "%0A";
+    const dadosBairro = bairroSelecionado.split("|");
+    const bairro = dadosBairro[0];
+    const taxaEntrega = parseFloat(dadosBairro[1]);
 
-    if (item.tempero) {
-        mensagem += "🌿 Tempero: " + item.tempero + "%0A";
-    }
+    // ===========================
+    // MENSAGEM
+    // ===========================
 
-    if (item.observacoes) {
-        mensagem += "📝 Observações: " + item.observacoes + "%0A";
-    }
+    let mensagem = "🍝 *Pedido Cantinho das Massas*%0A%0A";
 
-    mensagem += "💰 Valor: R$ " + item.valor.toFixed(2).replace(".", ",") + "%0A";
-    mensagem += "━━━━━━━━━━━━━━%0A%0A";
+    carrinho.forEach(item => {
 
+        if (item.tipo === "marmita") {
 
-} else {
+            mensagem += "🍝 *Monte sua Marmita*%0A";
+            mensagem += "Tamanho: " + item.tamanho + "%0A";
+            mensagem += "Massa: " + item.massa + "%0A";
+            mensagem += "Molho: " + item.molho + "%0A";
+            mensagem += "Proteína: " + item.proteina + "%0A";
 
-   mensagem += item.nome + "%0A";
+            if (item.proteinaExtra && item.proteinaExtra !== "Nenhuma") {
+                mensagem += "Segunda proteína: " + item.proteinaExtra + "%0A";
+            }
 
-    if (item.descricao) {
-        mensagem += item.descricao + "%0A";
-    }
-mensagem += "👤 DADOS DO CLIENTE%0A";
-mensagem += "Nome: " + nome + "%0A";
-mensagem += "Telefone: " + telefone + "%0A";
-mensagem += "Bairro: " + bairro + "%0A";
-mensagem += "Endereço: " + endereco + "%0A";
-mensagem += "Pagamento: " + pagamento + "%0A";
-mensagem += "━━━━━━━━━━━━━━%0A";
-    mensagem += "💰 Valor: R$ " + item.valor.toFixed(2).replace(".", ",") + "%0A";
-    mensagem += "━━━━━━━━━━━━━━%0A%0A";
+            mensagem += "Finalização: " + item.finalizacao + "%0A";
 
-}
+            if (item.tempero) {
+                mensagem += "Tempero: " + item.tempero + "%0A";
+            }
 
-});
+            if (item.observacoes) {
+                mensagem += "Observações: " + item.observacoes + "%0A";
+            }
 
-mensagem += "💰 Total do Pedido: R$ " + totalCarrinho.innerText.replace("R$", "");
+            mensagem += "Valor: R$ " + item.valor.toFixed(2).replace(".", ",") + "%0A";
+
+        } else {
+
+            mensagem += item.nome + "%0A";
+
+            if (item.descricao) {
+                mensagem += item.descricao + "%0A";
+            }
+
+            mensagem += "Valor: R$ " + item.valor.toFixed(2).replace(".", ",") + "%0A";
+
+        }
+
+        mensagem += "━━━━━━━━━━━━━━%0A%0A";
+
+    });
+
+    const totalPedido =
+        parseFloat(totalCarrinho.innerText.replace("R$", "").replace(",", ".")) +
+        taxaEntrega;
+
+    mensagem += "👤 *DADOS DO CLIENTE*%0A";
+    mensagem += "Nome: " + nome + "%0A";
+    mensagem += "Telefone: " + telefone + "%0A";
+    mensagem += "Bairro: " + bairro + "%0A";
+    mensagem += "Endereço: " + endereco + "%0A";
+    mensagem += "Pagamento: " + pagamento + "%0A";
+    mensagem += "Taxa de entrega: R$ " + taxaEntrega.toFixed(2).replace(".", ",") + "%0A";
+    mensagem += "━━━━━━━━━━━━━━%0A";
+    mensagem += "💰 *Total do Pedido: R$ " + totalPedido.toFixed(2).replace(".", ",") + "*";
+
     const numeroWhatsApp = "5511978169676";
 
     window.open(
