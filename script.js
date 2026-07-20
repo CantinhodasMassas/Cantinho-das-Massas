@@ -295,7 +295,11 @@ botoesProdutos.forEach((botao) => {
 
 btnFinalizar.addEventListener("click", function () {
 
-    alert("ENTROU NO FINALIZAR NOVO");
+    const nome = document.getElementById("nome").value.trim();
+const telefone = document.getElementById("telefone").value.trim();
+const bairro = document.getElementById("bairro").value;
+const endereco = document.getElementById("endereco").value.trim();
+const pagamento = document.getElementById("pagamento").value;
 
     
     if (carrinho.length === 0) {
@@ -303,6 +307,10 @@ btnFinalizar.addEventListener("click", function () {
         return;
     }
 
+    if (!nome || !telefone || !bairro || !endereco || !pagamento) {
+    alert("Preencha todos os dados do cliente.");
+    return;
+}
     let mensagem = "🍝 Pedido Cantinho das Massas%0A%0A";
 
 carrinho.forEach(item => {
@@ -341,7 +349,13 @@ carrinho.forEach(item => {
     if (item.descricao) {
         mensagem += item.descricao + "%0A";
     }
-
+mensagem += "👤 DADOS DO CLIENTE%0A";
+mensagem += "Nome: " + nome + "%0A";
+mensagem += "Telefone: " + telefone + "%0A";
+mensagem += "Bairro: " + bairro + "%0A";
+mensagem += "Endereço: " + endereco + "%0A";
+mensagem += "Pagamento: " + pagamento + "%0A";
+mensagem += "━━━━━━━━━━━━━━%0A";
     mensagem += "💰 Valor: R$ " + item.valor.toFixed(2).replace(".", ",") + "%0A";
     mensagem += "━━━━━━━━━━━━━━%0A%0A";
 
