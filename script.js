@@ -336,7 +336,7 @@ carrinho.forEach(item => {
 
 } else {
 
-    mensagem += "🍝 " + item.nome + "%0A";
+   mensagem += item.nome + "%0A";
 
     if (item.descricao) {
         mensagem += item.descricao + "%0A";
