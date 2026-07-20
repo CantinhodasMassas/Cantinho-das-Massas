@@ -309,37 +309,47 @@ carrinho.forEach(item => {
    
     console.log(item);
 
-    if (item.tipo === "marmita") {
+   if (item.tipo === "marmita") {
 
-        mensagem += "🍝 Monte sua Marmita - " + item.tamanho + "%0A";
-        mensagem += "🍝 Massa: " + item.massa + "%0A";
-        mensagem += "🍅 Molho: " + item.molho + "%0A";
-        mensagem += "🥩 Proteína: " + item.proteina + "%0A";
+    mensagem += "🍝 Monte sua Marmita - " + item.tamanho + "%0A";
+    mensagem += "🍝 Massa: " + item.massa + "%0A";
+    mensagem += "🍅 Molho: " + item.molho + "%0A";
+    mensagem += "🥩 Proteína: " + item.proteina + "%0A";
 
-        if (item.proteinaExtra !== "Nenhuma") {
-            mensagem += "➕ Segunda proteína: " + item.proteinaExtra + "%0A";
-        }
-
-        mensagem += "🧀 Finalização: " + item.finalizacao + "%0A";
-        mensagem += "🌿 Tempero: " + item.tempero + "%0A";
-
-        if (item.observacoes) {
-            mensagem += "📝 Observações: " + item.observacoes + "%0A";
-        }
-
-        mensagem += "💰 R$ " + item.valor.toFixed(2).replace(".", ",") + "%0A%0A";
-
-    } else {
-
-        mensagem += "• " + item.nome + "%0A";
-        mensagem += item.descricao + "%0A";
-        mensagem += "💰 R$ " + item.valor.toFixed(2).replace(".", ",") + "%0A%0A";
-
+    if (item.proteinaExtra !== "Nenhuma") {
+        mensagem += "➕ Segunda proteína: " + item.proteinaExtra + "%0A";
     }
 
-});
-    mensagem += "💰 Total: R$ " + totalCarrinho.innerText.replace("R$", "");
+    mensagem += "🧀 Finalização: " + item.finalizacao + "%0A";
 
+    if (item.tempero) {
+        mensagem += "🌿 Tempero: " + item.tempero + "%0A";
+    }
+
+    if (item.observacoes) {
+        mensagem += "📝 Observações: " + item.observacoes + "%0A";
+    }
+
+    mensagem += "💰 Valor: R$ " + item.valor.toFixed(2).replace(".", ",") + "%0A";
+    mensagem += "━━━━━━━━━━━━━━%0A%0A";
+
+
+} else {
+
+    mensagem += "🍝 " + item.nome + "%0A";
+
+    if (item.descricao) {
+        mensagem += item.descricao + "%0A";
+    }
+
+    mensagem += "💰 Valor: R$ " + item.valor.toFixed(2).replace(".", ",") + "%0A";
+    mensagem += "━━━━━━━━━━━━━━%0A%0A";
+
+}
+
+});
+
+mensagem += "💰 Total do Pedido: R$ " + totalCarrinho.innerText.replace("R$", "");
     const numeroWhatsApp = "5511978169676";
 
     window.open(
