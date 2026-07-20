@@ -304,7 +304,9 @@ btnFinalizar.addEventListener("click", function () {
     let mensagem = "🍝 Pedido Cantinho das Massas%0A%0A";
 
 carrinho.forEach(item => {
-console.log(item);
+   
+    console.log(item);
+
     if (item.tipo === "marmita") {
 
         mensagem += "🍝 Monte sua Marmita - " + item.tamanho + "%0A";
