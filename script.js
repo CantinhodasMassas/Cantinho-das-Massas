@@ -215,12 +215,20 @@ Subtotal: R$ ${total.toFixed(2).replace(".", ",")}<br>
 <strong>Total: R$ ${totalFinal.toFixed(2).replace(".", ",")}</strong>
 `;
 
+} // <-- FECHA atualizarCarrinho AQUI
+
+
 // =======================
 // REMOVER ITEM
 // =======================
 
 function removerItem(index) {
 
+    carrinho.splice(index, 1);
+
+    atualizarCarrinho();
+
+}
     carrinho.splice(index, 1);
 
     atualizarCarrinho();
@@ -409,8 +417,6 @@ window.open(
 });
 
 // Atualiza o total quando mudar o bairro
-document.getElementById("bairroCliente").addEventListener("change", function () {
-    atualizarCarrinho();
-});
+
 document.getElementById("bairroCliente").addEventListener("change", atualizarCarrinho);
 alert("script carregado");
