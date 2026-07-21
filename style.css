@@ -458,3 +458,32 @@ h2{
 .carrinho {
     display: block;
 }
+
+.cupom{
+    margin-top:20px;
+}
+
+.cupom input{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+    box-sizing:border-box;
+}
+
+.cupom button{
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#2e7d32;
+    color:#fff;
+    font-weight:bold;
+}
+
+#mensagemCupom{
+    margin-top:10px;
+    font-weight:bold;
+}
