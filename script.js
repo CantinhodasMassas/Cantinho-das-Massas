@@ -388,19 +388,27 @@ btnFinalizar.addEventListener("click", function () {
 
     });
 
-   const totalPedido = carrinho.reduce((total, item) => {
+  const totalPedido = carrinho.reduce((total, item) => {
     return total + item.valor;
 }, 0) + taxaEntrega;
 
-    mensagem += "👤 *DADOS DO CLIENTE*%0A";
-    mensagem += "Nome: " + nome + "%0A";
-    mensagem += "Telefone: " + telefone + "%0A";
-    mensagem += "Bairro: " + bairro + "%0A";
-    mensagem += "Endereço: " + endereco + "%0A";
-    mensagem += "Pagamento: " + pagamento + "%0A";
-    mensagem += "Taxa de entrega: R$ " + taxaEntrega.toFixed(2).replace(".", ",") + "%0A";
-    mensagem += "━━━━━━━━━━━━━━%0A";
-    mensagem += "💰 *Total do Pedido: R$ " + totalPedido.toFixed(2).replace(".", ",") + "*";
+
+const subtotal = carrinho.reduce((total, item) => {
+    return total + item.valor;
+}, 0);
+
+
+mensagem += "👤 *DADOS DO CLIENTE*%0A";
+mensagem += "Nome: " + nome + "%0A";
+mensagem += "Telefone: " + telefone + "%0A";
+mensagem += "Bairro: " + bairro + "%0A";
+mensagem += "Endereço: " + endereco + "%0A";
+mensagem += "Pagamento: " + pagamento + "%0A";
+mensagem += "━━━━━━━━━━━━━━%0A";
+mensagem += "💵 Subtotal: R$ " + subtotal.toFixed(2).replace(".", ",") + "%0A";
+mensagem += "🚚 Taxa de entrega: R$ " + taxaEntrega.toFixed(2).replace(".", ",") + "%0A";
+mensagem += "━━━━━━━━━━━━━━%0A";
+mensagem += "💰 *Total do Pedido: R$ " + totalPedido.toFixed(2).replace(".", ",") + "*";
 
 const numeroWhatsApp = "5511978169676";
 
