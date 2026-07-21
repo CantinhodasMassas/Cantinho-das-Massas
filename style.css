@@ -448,3 +448,10 @@ h2{
     margin-bottom: 10px;
     border-radius: 8px;
 }
+.carrinho input,
+.carrinho select,
+.carrinho button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
