@@ -455,3 +455,6 @@ h2{
     width: 100%;
     margin-bottom: 10px;
 }
+.carrinho {
+    display: block;
+}
