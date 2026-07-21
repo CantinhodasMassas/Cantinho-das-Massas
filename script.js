@@ -388,9 +388,9 @@ btnFinalizar.addEventListener("click", function () {
 
     });
 
-    const totalPedido =
-        parseFloat(totalCarrinho.innerText.replace("R$", "").replace(",", ".")) +
-        taxaEntrega;
+   const totalPedido = carrinho.reduce((total, item) => {
+    return total + item.valor;
+}, 0) + taxaEntrega;
 
     mensagem += "👤 *DADOS DO CLIENTE*%0A";
     mensagem += "Nome: " + nome + "%0A";
