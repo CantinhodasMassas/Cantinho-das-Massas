@@ -229,12 +229,7 @@ function removerItem(index) {
     atualizarCarrinho();
 
 }
-    carrinho.splice(index, 1);
-
-    atualizarCarrinho();
-
-}
-
+  
 // =======================
 // ADICIONAR SUGESTÕES, NHOQUE E COMBOS
 // =======================
@@ -419,4 +414,7 @@ window.open(
 // Atualiza o total quando mudar o bairro
 
 document.getElementById("bairroCliente").addEventListener("change", atualizarCarrinho);
+
 alert("script carregado");
+
+console.log("FINAL DO SCRIPT OK");
