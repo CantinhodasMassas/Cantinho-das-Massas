@@ -229,7 +229,7 @@ function removerItem(index) {
     atualizarCarrinho();
 
 }
-  
+
 // =======================
 // ADICIONAR SUGESTÕES, NHOQUE E COMBOS
 // =======================
