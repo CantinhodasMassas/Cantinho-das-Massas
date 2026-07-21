@@ -191,11 +191,29 @@ total += item.valor;
     });
 
 
-    totalCarrinho.innerHTML =
-    "R$ " + total.toFixed(2).replace(".", ",");
+   // =======================
+// CALCULA A TAXA DE ENTREGA
+// =======================
+
+let taxaEntrega = 0;
+
+const bairro = document.getElementById("bairroCliente");
+
+if (bairro.value !== "") {
+
+    taxaEntrega = parseFloat(bairro.value.split("|")[1]);
 
 }
 
+const totalFinal = total + taxaEntrega;
+
+// Exibe o total
+
+totalCarrinho.innerHTML = `
+Subtotal: R$ ${total.toFixed(2).replace(".", ",")}<br>
+🚚 Entrega: R$ ${taxaEntrega.toFixed(2).replace(".", ",")}<br>
+<strong>Total: R$ ${totalFinal.toFixed(2).replace(".", ",")}</strong>
+`;
 
 // =======================
 // REMOVER ITEM
@@ -381,12 +399,18 @@ btnFinalizar.addEventListener("click", function () {
     mensagem += "━━━━━━━━━━━━━━%0A";
     mensagem += "💰 *Total do Pedido: R$ " + totalPedido.toFixed(2).replace(".", ",") + "*";
 
-    const numeroWhatsApp = "5511978169676";
+const numeroWhatsApp = "5511978169676";
 
-    window.open(
-        "https://wa.me/" + numeroWhatsApp + "?text=" + mensagem,
-        "_blank"
-    );
+window.open(
+    "https://wa.me/" + numeroWhatsApp + "?text=" + mensagem,
+    "_blank"
+);
 
 });
+
+// Atualiza o total quando mudar o bairro
+document.getElementById("bairroCliente").addEventListener("change", function () {
+    atualizarCarrinho();
+});
+document.getElementById("bairroCliente").addEventListener("change", atualizarCarrinho);
 alert("script carregado");
