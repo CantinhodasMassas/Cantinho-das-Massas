@@ -2,6 +2,25 @@
 // ELEMENTOS
 // =======================
 
+const cupomInput = document.getElementById("cupom");
+const btnCupom = document.getElementById("btnCupom");
+const mensagemCupom = document.getElementById("mensagemCupom");
+
+let descontoCupom = 0;
+let cupomAplicado = null;
+const cupons = {
+    CANTINHO10: {
+        tipo: "percentual",
+        valor: 10,
+        validade: "2026-08-10"
+    },
+
+    MASSAS5: {
+        tipo: "fixo",
+        valor: 5,
+        validade: "2026-12-31"
+    }
+};
 const tamanho = document.getElementById("tamanho");
 const proteinaExtra = document.getElementById("proteinaExtra");
 const valorTotal = document.getElementById("valorTotal");
@@ -18,7 +37,19 @@ const observacoes = document.getElementById("observacoes");
 const btnFinalizar = document.getElementById("btnFinalizar");
 
 let carrinho = [];
+const cupons = {
+    CANTINHO10: {
+        tipo: "percentual",
+        valor: 10,
+        validade: "2026-08-10"
+    },
 
+    MASSAS5: {
+        tipo: "fixo",
+        valor: 5,
+        validade: "2026-12-31"
+    }
+};
 // =======================
 // VALOR DA MARMITA
 // =======================
@@ -205,12 +236,19 @@ if (bairro.value !== "") {
 
 }
 
-const totalFinal = total + taxaEntrega;
+// Calcula o desconto do cupom
+const totalComDesconto = total - descontoCupom;
+
+// Evita que o total fique negativo
+const subtotalFinal = totalComDesconto < 0 ? 0 : totalComDesconto;
+
+// Soma a entrega
+const totalFinal = subtotalFinal + taxaEntrega;
 
 // Exibe o total
-
 totalCarrinho.innerHTML = `
 Subtotal: R$ ${total.toFixed(2).replace(".", ",")}<br>
+🎁 Desconto: -R$ ${descontoCupom.toFixed(2).replace(".", ",")}<br>
 🚚 Entrega: R$ ${taxaEntrega.toFixed(2).replace(".", ",")}<br>
 <strong>Total: R$ ${totalFinal.toFixed(2).replace(".", ",")}</strong>
 `;
@@ -421,6 +459,39 @@ window.open(
 
 // Atualiza o total quando mudar o bairro
 
+// =======================
+// CUPOM DE DESCONTO
+// =======================
+
+function validarCupom(codigo) {
+
+    codigo = codigo.trim().toUpperCase();
+
+    if (!cupons[codigo]) {
+        return {
+            valido: false,
+            mensagem: "Cupom inválido."
+        };
+    }
+
+    const cupom = cupons[codigo];
+
+    const hoje = new Date();
+    const validade = new Date(cupom.validade + "T23:59:59");
+
+    if (hoje > validade) {
+        return {
+            valido: false,
+            mensagem: "Cupom expirado."
+        };
+    }
+
+    return {
+        valido: true,
+        cupom: cupom
+    };
+
+}
 document.getElementById("bairroCliente").addEventListener("change", atualizarCarrinho);
 
 alert("script carregado");
