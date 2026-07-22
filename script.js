@@ -9,18 +9,68 @@ const mensagemCupom = document.getElementById("mensagemCupom");
 let descontoCupom = 0;
 let cupomAplicado = null;
 const cupons = {
+    MEMBROVIP: {
+        tipo: "percentual",
+        valor: 5,
+        validade: null
+    },
+
     CANTINHO10: {
         tipo: "percentual",
         valor: 10,
         validade: "2026-08-10"
-    },
-
-    MASSAS5: {
-        tipo: "fixo",
-        valor: 5,
-        validade: "2026-12-31"
     }
 };
+btnCupom.addEventListener("click", function () {
+
+    const codigo = cupomInput.value.trim().toUpperCase();
+
+    if (codigo === "") {
+        mensagemCupom.innerHTML = "Digite um cupom.";
+        mensagemCupom.style.color = "red";
+        return;
+    }
+
+    const cupom = cupons[codigo];
+
+    if (!cupom) {
+        mensagemCupom.innerHTML = "Cupom inválido.";
+        mensagemCupom.style.color = "red";
+        return;
+    }
+
+    if (cupomAplicado === codigo) {
+        mensagemCupom.innerHTML = "Este cupom já foi aplicado.";
+        mensagemCupom.style.color = "orange";
+        return;
+    }
+
+    if (cupom.validade !== null) {
+
+        const hoje = new Date();
+        hoje.setHours(0, 0, 0, 0);
+
+        const validade = new Date(cupom.validade + "T23:59:59");
+
+        if (hoje > validade) {
+            mensagemCupom.innerHTML = "Este cupom expirou.";
+            mensagemCupom.style.color = "red";
+            return;
+        }
+
+    }
+
+    descontoCupom = cupom.valor;
+    cupomAplicado = codigo;
+
+    mensagemCupom.innerHTML =
+        `Cupom ${codigo} aplicado! ${cupom.valor}% de desconto.`;
+
+    mensagemCupom.style.color = "green";
+
+    atualizarCarrinho();
+
+});
 const tamanho = document.getElementById("tamanho");
 const proteinaExtra = document.getElementById("proteinaExtra");
 const valorTotal = document.getElementById("valorTotal");
@@ -224,19 +274,21 @@ if (bairro.value !== "") {
 
 }
 
-// Calcula o desconto do cupom
-const totalComDesconto = total - descontoCupom;
+// Calcula o desconto
+let valorDesconto = 0;
 
-// Evita que o total fique negativo
-const subtotalFinal = totalComDesconto < 0 ? 0 : totalComDesconto;
+if (descontoCupom > 0) {
+    valorDesconto = total * (descontoCupom / 100);
+}
 
+const subtotalFinal = total - valorDesconto;
 // Soma a entrega
 const totalFinal = subtotalFinal + taxaEntrega;
 
 // Exibe o total
 totalCarrinho.innerHTML = `
 Subtotal: R$ ${(total || 0).toFixed(2).replace(".", ",")}<br>
-🎁 Desconto: -R$ ${(descontoCupom || 0).toFixed(2).replace(".", ",")}<br>
+🎁 Desconto: -R$ ${(valorDesconto || 0).toFixed(2).replace(".", ",")} (${descontoCupom}%)<br>
 🚚 Entrega: R$ ${(taxaEntrega || 0).toFixed(2).replace(".", ",")}<br>
 <strong>Total: R$ ${(totalFinal || 0).toFixed(2).replace(".", ",")}</strong>
 `;
