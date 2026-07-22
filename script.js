@@ -508,22 +508,31 @@ function validarCupom(codigo) {
 
     codigo = codigo.trim().toUpperCase();
 
-    if (!cupons[codigo]) {
+    const cupom = cupons[codigo];
+
+    if (!cupom) {
         return {
             valido: false,
             mensagem: "Cupom inválido."
         };
     }
 
-    const hoje = new Date();
-    const validade = new Date(cupom.validade + "T23:59:59");
 
-    if (hoje > validade) {
-        return {
-            valido: false,
-            mensagem: "Cupom expirado."
-        };
+    if (cupom.validade !== null) {
+
+        const hoje = new Date();
+        hoje.setHours(0,0,0,0);
+
+        const validade = new Date(cupom.validade + "T23:59:59");
+
+        if (hoje > validade) {
+            return {
+                valido: false,
+                mensagem: "Cupom expirado."
+            };
+        }
     }
+
 
     return {
         valido: true,
@@ -531,9 +540,3 @@ function validarCupom(codigo) {
     };
 
 }
-
-document.getElementById("bairroCliente").addEventListener("change", atualizarCarrinho);
-
-alert("script carregado");
-
-console.log("FINAL DO SCRIPT OK");
