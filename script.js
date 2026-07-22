@@ -235,10 +235,10 @@ const totalFinal = subtotalFinal - descontoCupom + taxaEntrega;
 
 // Exibe o total
 totalCarrinho.innerHTML = `
-Subtotal: R$ ${total.toFixed(2).replace(".", ",")}<br>
-🎁 Desconto: -R$ ${descontoCupom.toFixed(2).replace(".", ",")}<br>
+Subtotal: R$ ${(total || 0).toFixed(2).replace(".", ",")}<br>
+🎁 Desconto: -R$ ${(descontoCupom || 0).toFixed(2).replace(".", ",")}<br>
 🚚 Entrega: R$ ${(taxaEntrega || 0).toFixed(2).replace(".", ",")}<br>
-<strong>Total: R$ ${totalFinal.toFixed(2).replace(".", ",")}</strong>
+<strong>Total: R$ ${(totalFinal || 0).toFixed(2).replace(".", ",")}</strong>
 `;
 
 } // <-- FECHA atualizarCarrinho AQUI
