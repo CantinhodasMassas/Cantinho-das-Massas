@@ -37,18 +37,7 @@ const observacoes = document.getElementById("observacoes");
 const btnFinalizar = document.getElementById("btnFinalizar");
 
 let carrinho = [];
-const cupons = {
-    CANTINHO10: {
-        tipo: "percentual",
-        valor: 10,
-        validade: "2026-08-10"
-    },
 
-    MASSAS5: {
-        tipo: "fixo",
-        valor: 5,
-        validade: "2026-12-31"
-    }
 };
 // =======================
 // VALOR DA MARMITA
