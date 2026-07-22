@@ -499,6 +499,8 @@ btnCupom.addEventListener("click", function () {
 
     if (resultado.cupom.tipo === "percentual") {
         descontoCupom = subtotal * (resultado.cupom.valor / 100);
+        console.log("Desconto calculado:", descontoCupom);
+console.log("Subtotal calculado:", subtotal);
     } else {
         descontoCupom = resultado.cupom.valor;
     }
