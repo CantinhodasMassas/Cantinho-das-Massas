@@ -463,8 +463,6 @@ function validarCupom(codigo) {
         };
     }
 
-    const cupom = cupons[codigo];
-
     const hoje = new Date();
     const validade = new Date(cupom.validade + "T23:59:59");
 
