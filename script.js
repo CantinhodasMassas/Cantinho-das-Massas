@@ -1,7 +1,7 @@
+console.log("SCRIPT NOVO CARREGADO");
 // =======================
 // ELEMENTOS
 // =======================
-
 const cupomInput = document.getElementById("cupom");
 const btnCupom = document.getElementById("btnCupom");
 const mensagemCupom = document.getElementById("mensagemCupom");
