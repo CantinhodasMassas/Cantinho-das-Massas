@@ -1,4 +1,3 @@
-console.log("SCRIPT NOVO CARREGADO");
 // =======================
 // ELEMENTOS
 // =======================
