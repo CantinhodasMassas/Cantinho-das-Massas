@@ -492,6 +492,42 @@ function validarCupom(codigo) {
     };
 
 }
+btnCupom.addEventListener("click", function () {
+
+    const resultado = validarCupom(cupomInput.value);
+
+    if (!resultado.valido) {
+
+        descontoCupom = 0;
+        cupomAplicado = null;
+
+        mensagemCupom.innerHTML = "❌ " + resultado.mensagem;
+        mensagemCupom.style.color = "red";
+
+        atualizarCarrinho();
+        return;
+    }
+
+    const subtotal = carrinho.reduce((total, item) => total + item.valor, 0);
+
+    if (resultado.cupom.tipo === "percentual") {
+        descontoCupom = subtotal * (resultado.cupom.valor / 100);
+    } else {
+        descontoCupom = resultado.cupom.valor;
+    }
+
+    if (descontoCupom > subtotal) {
+        descontoCupom = subtotal;
+    }
+
+    cupomAplicado = cupomInput.value.trim().toUpperCase();
+
+    mensagemCupom.innerHTML = "✅ Cupom aplicado com sucesso!";
+    mensagemCupom.style.color = "green";
+
+    atualizarCarrinho();
+
+});
 document.getElementById("bairroCliente").addEventListener("change", atualizarCarrinho);
 
 alert("script carregado");
