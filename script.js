@@ -422,7 +422,8 @@ btnFinalizar.addEventListener("click", function () {
 const subtotal = carrinho.reduce((total, item) => {
     return total + item.valor;
 }, 0);
-
+console.log("Subtotal do cupom:", subtotal);
+console.log("Carrinho:", carrinho);
 
 mensagem += "👤 *DADOS DO CLIENTE*%0A";
 mensagem += "Nome: " + nome + "%0A";
