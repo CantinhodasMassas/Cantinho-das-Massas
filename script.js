@@ -38,7 +38,6 @@ const btnFinalizar = document.getElementById("btnFinalizar");
 
 let carrinho = [];
 
-};
 // =======================
 // VALOR DA MARMITA
 // =======================
