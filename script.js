@@ -210,7 +210,7 @@ total += item.valor;
     });
 
 
-   // =======================
+// =======================
 // CALCULA A TAXA DE ENTREGA
 // =======================
 
@@ -231,7 +231,7 @@ const totalComDesconto = total - descontoCupom;
 const subtotalFinal = totalComDesconto < 0 ? 0 : totalComDesconto;
 
 // Soma a entrega
-const totalFinal = subtotalFinal - descontoCupom + taxaEntrega;
+const totalFinal = subtotalFinal + taxaEntrega;
 
 // Exibe o total
 totalCarrinho.innerHTML = `
