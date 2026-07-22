@@ -231,7 +231,7 @@ const totalComDesconto = total - descontoCupom;
 const subtotalFinal = totalComDesconto < 0 ? 0 : totalComDesconto;
 
 // Soma a entrega
-const totalFinal = subtotalFinal + taxaEntrega;
+const totalFinal = subtotalFinal - descontoCupom + taxaEntrega;
 
 // Exibe o total
 totalCarrinho.innerHTML = `
