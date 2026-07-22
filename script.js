@@ -11,13 +11,13 @@ let cupomAplicado = null;
 const cupons = {
     MEMBROVIP: {
         tipo: "percentual",
-        valor: 5,
+        valor: 10,
         validade: null
     },
 
     CANTINHO10: {
         tipo: "percentual",
-        valor: 10,
+        valor: 5,
         validade: "2026-08-10"
     }
 };
