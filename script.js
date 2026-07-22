@@ -237,7 +237,7 @@ const totalFinal = subtotalFinal - descontoCupom + taxaEntrega;
 totalCarrinho.innerHTML = `
 Subtotal: R$ ${total.toFixed(2).replace(".", ",")}<br>
 🎁 Desconto: -R$ ${descontoCupom.toFixed(2).replace(".", ",")}<br>
-🚚 Entrega: R$ ${taxaEntrega.toFixed(2).replace(".", ",")}<br>
+🚚 Entrega: R$ ${(taxaEntrega || 0).toFixed(2).replace(".", ",")}<br>
 <strong>Total: R$ ${totalFinal.toFixed(2).replace(".", ",")}</strong>
 `;
 
