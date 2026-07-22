@@ -465,14 +465,13 @@ btnFinalizar.addEventListener("click", function () {
 
     });
 
-  const totalPedido = carrinho.reduce((total, item) => {
-    return total + item.valor;
-}, 0) + taxaEntrega;
-
-
-const subtotal = carrinho.reduce((total, item) => {
+  const subtotal = carrinho.reduce((total, item) => {
     return total + item.valor;
 }, 0);
+
+const totalComDesconto = subtotal - descontoCupom;
+
+const totalPedido = totalComDesconto + taxaEntrega;
 console.log("Subtotal do cupom:", subtotal);
 console.log("Carrinho:", carrinho);
 
@@ -484,6 +483,11 @@ mensagem += "Endereço: " + endereco + "%0A";
 mensagem += "Pagamento: " + pagamento + "%0A";
 mensagem += "━━━━━━━━━━━━━━%0A";
 mensagem += "💵 Subtotal: R$ " + (subtotal || 0).toFixed(2).replace(".", ",") + "%0A";
+    if (cupomAplicado) {
+ mensagem += "🎁 Cupom: " + cupomAplicado + "%0A";
+    mensagem += "Desconto: -R$ " + (descontoCupom || 0).toFixed(2).replace(".", ",") + "%0A";
+
+}
 mensagem += "🚚 Taxa de entrega: R$ " + (taxaEntrega || 0).toFixed(2).replace(".", ",") + "%0A";
 mensagem += "━━━━━━━━━━━━━━%0A";
 mensagem += "💰 *Total do Pedido: R$ " + (totalPedido || 0).toFixed(2).replace(".", ",") + "*";
