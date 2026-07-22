@@ -499,7 +499,13 @@ window.open(
 });
 
 // Atualiza o total quando mudar o bairro
+const bairroCliente = document.getElementById("bairroCliente");
 
+bairroCliente.addEventListener("change", function () {
+
+    atualizarCarrinho();
+
+});
 // =======================
 // CUPOM DE DESCONTO
 // =======================
