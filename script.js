@@ -62,7 +62,7 @@ function atualizarValor() {
     }
 
     valorTotal.innerHTML =
-        "R$ " + total.toFixed(2).replace(".", ",");
+       "R$ " + (total || 0).toFixed(2).replace(".", ",");
 
 }
 
@@ -396,7 +396,7 @@ btnFinalizar.addEventListener("click", function () {
                 mensagem += "Observações: " + item.observacoes + "%0A";
             }
 
-            mensagem += "Valor: R$ " + item.valor.toFixed(2).replace(".", ",") + "%0A";
+            mensagem += "Valor: R$ " + (item.valor || 0).toFixed(2).replace(".", ",") + "%0A";
 
         } else {
 
@@ -406,7 +406,7 @@ btnFinalizar.addEventListener("click", function () {
                 mensagem += item.descricao + "%0A";
             }
 
-            mensagem += "Valor: R$ " + item.valor.toFixed(2).replace(".", ",") + "%0A";
+           mensagem += "Valor: R$ " + (item.valor || 0).toFixed(2).replace(".", ",") + "%0A";
 
         }
 
@@ -432,10 +432,10 @@ mensagem += "Bairro: " + bairro + "%0A";
 mensagem += "Endereço: " + endereco + "%0A";
 mensagem += "Pagamento: " + pagamento + "%0A";
 mensagem += "━━━━━━━━━━━━━━%0A";
-mensagem += "💵 Subtotal: R$ " + subtotal.toFixed(2).replace(".", ",") + "%0A";
-mensagem += "🚚 Taxa de entrega: R$ " + taxaEntrega.toFixed(2).replace(".", ",") + "%0A";
+mensagem += "💵 Subtotal: R$ " + (subtotal || 0).toFixed(2).replace(".", ",") + "%0A";
+mensagem += "🚚 Taxa de entrega: R$ " + (taxaEntrega || 0).toFixed(2).replace(".", ",") + "%0A";
 mensagem += "━━━━━━━━━━━━━━%0A";
-mensagem += "💰 *Total do Pedido: R$ " + totalPedido.toFixed(2).replace(".", ",") + "*";
+mensagem += "💰 *Total do Pedido: R$ " + (totalPedido || 0).toFixed(2).replace(".", ",") + "*";
 
 const numeroWhatsApp = "5511978169676";
 
