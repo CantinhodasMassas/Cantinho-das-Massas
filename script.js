@@ -496,6 +496,8 @@ console.log("Botão cupom clicado");
     }
 
     const subtotal = carrinho.reduce((total, item) => total + item.valor, 0);
+    console.log("SUBTOTAL:", subtotal);
+console.log("CARRINHO:", carrinho);
 console.log("Subtotal do cupom:", subtotal);
 console.log("Carrinho no cupom:", carrinho);
     if (resultado.cupom.tipo === "percentual") {
