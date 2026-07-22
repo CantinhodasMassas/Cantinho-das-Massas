@@ -480,7 +480,7 @@ function validarCupom(codigo) {
 
 }
 btnCupom.addEventListener("click", function () {
-
+console.log("Botão cupom clicado");
     const resultado = validarCupom(cupomInput.value);
 
     if (!resultado.valido) {
