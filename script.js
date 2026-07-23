@@ -59,9 +59,15 @@ btnCupom.addEventListener("click", function () {
 
     }
 
-    descontoCupom = cupom.valor;
-    cupomAplicado = codigo;
+    const subtotal = carrinho.reduce((total, item) => total + item.valor, 0);
 
+if (cupom.tipo === "percentual") {
+    descontoCupom = subtotal * (cupom.valor / 100);
+} else {
+    descontoCupom = cupom.valor;
+}
+
+cupomAplicado = codigo;
     mensagemCupom.innerHTML =
         `Cupom ${codigo} aplicado! ${cupom.valor}% de desconto.`;
 
@@ -276,9 +282,19 @@ if (bairro.value !== "") {
 // Calcula o desconto
 let valorDesconto = 0;
 
-if (descontoCupom > 0) {
-    valorDesconto = total * (descontoCupom / 100);
+if (cupomAplicado) {
+
+    const cupom = cupons[cupomAplicado];
+
+    if (cupom.tipo === "percentual") {
+        valorDesconto = total * (cupom.valor / 100);
+    } else {
+        valorDesconto = cupom.valor;
+    }
+
 }
+
+descontoCupom = valorDesconto;
 
 const subtotalFinal = total - valorDesconto;
 // Soma a entrega
@@ -483,10 +499,9 @@ mensagem += "Endereço: " + endereco + "%0A";
 mensagem += "Pagamento: " + pagamento + "%0A";
 mensagem += "━━━━━━━━━━━━━━%0A";
 mensagem += "💵 Subtotal: R$ " + (subtotal || 0).toFixed(2).replace(".", ",") + "%0A";
-    if (cupomAplicado) {
- mensagem += "🎁 Cupom: " + cupomAplicado + "%0A";
-    mensagem += "Desconto: -R$ " + (descontoCupom || 0).toFixed(2).replace(".", ",") + "%0A";
-
+if (cupomAplicado) {
+mensagem += "🎁 Cupom: " + cupomAplicado + "%0A";
+mensagem += "Desconto: -R$ " + (descontoCupom || 0).toFixed(2).replace(".", ",") + "%0A";
 }
 mensagem += "🚚 Taxa de entrega: R$ " + (taxaEntrega || 0).toFixed(2).replace(".", ",") + "%0A";
 mensagem += "━━━━━━━━━━━━━━%0A";
