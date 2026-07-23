@@ -430,77 +430,96 @@ btnFinalizar.addEventListener("click", function () {
     const bairro = dadosBairro[0];
     const taxaEntrega = parseFloat(dadosBairro[1]);
 
-    // ===========================
-    // MENSAGEM
-    // ===========================
+// ===========================
+// MENSAGEM
+// ===========================
 
-    let mensagem = "🍝 *Pedido Cantinho das Massas*%0A%0A";
+let mensagem = "🍝 *NOVO PEDIDO - CANTINHO DAS MASSAS*%0A%0A";
 
-    carrinho.forEach(item => {
+mensagem += "━━━━━━━━━━━━━━%0A";
+mensagem += "🛒 *ITENS DO PEDIDO*%0A";
+mensagem += "━━━━━━━━━━━━━━%0A%0A";
 
-        if (item.tipo === "marmita") {
 
-            mensagem += "🍝 *Monte sua Marmita*%0A";
-            mensagem += "Tamanho: " + item.tamanho + "%0A";
-            mensagem += "Massa: " + item.massa + "%0A";
-            mensagem += "Molho: " + item.molho + "%0A";
-            mensagem += "Proteína: " + item.proteina + "%0A";
+carrinho.forEach(item => {
 
-            if (item.proteinaExtra && item.proteinaExtra !== "Nenhuma") {
-                mensagem += "Segunda proteína: " + item.proteinaExtra + "%0A";
-            }
+    if (item.tipo === "marmita") {
 
-            mensagem += "Finalização: " + item.finalizacao + "%0A";
+        mensagem += "🍝 *Monte sua Marmita*%0A";
+        mensagem += "📦 Tamanho: " + item.tamanho + "%0A";
+        mensagem += "🍝 Massa: " + item.massa + "%0A";
+        mensagem += "🍅 Molho: " + item.molho + "%0A";
+        mensagem += "🥩 Proteína: " + item.proteina + "%0A";
 
-            if (item.tempero) {
-                mensagem += "Tempero: " + item.tempero + "%0A";
-            }
-
-            if (item.observacoes) {
-                mensagem += "Observações: " + item.observacoes + "%0A";
-            }
-
-            mensagem += "Valor: R$ " + (item.valor || 0).toFixed(2).replace(".", ",") + "%0A";
-
-        } else {
-
-            mensagem += item.nome + "%0A";
-
-            if (item.descricao) {
-                mensagem += item.descricao + "%0A";
-            }
-
-           mensagem += "Valor: R$ " + (item.valor || 0).toFixed(2).replace(".", ",") + "%0A";
-
+        if (item.proteinaExtra && item.proteinaExtra !== "Nenhuma") {
+            mensagem += "➕ Segunda proteína: " + item.proteinaExtra + "%0A";
         }
 
-        mensagem += "━━━━━━━━━━━━━━%0A%0A";
+        mensagem += "🧀 Finalização: " + item.finalizacao + "%0A";
 
-    });
+        if (item.tempero) {
+            mensagem += "🌿 Tempero: " + item.tempero + "%0A";
+        }
 
-  const subtotal = carrinho.reduce((total, item) => {
+        if (item.observacoes) {
+            mensagem += "📝 Observação: " + item.observacoes + "%0A";
+        }
+
+        mensagem += "💰 Valor: R$ " + item.valor.toFixed(2).replace(".", ",") + "%0A";
+
+    } else {
+
+        mensagem += "🍝 *" + item.nome + "*%0A";
+
+        if (item.descricao) {
+            mensagem += item.descricao + "%0A";
+        }
+
+        mensagem += "💰 Valor: R$ " + item.valor.toFixed(2).replace(".", ",") + "%0A";
+
+    }
+
+    mensagem += "%0A━━━━━━━━━━━━━━%0A%0A";
+
+});
+
+
+const subtotal = carrinho.reduce((total, item) => {
     return total + item.valor;
 }, 0);
+
 
 const totalComDesconto = subtotal - descontoCupom;
 
 const totalPedido = totalComDesconto + taxaEntrega;
 
+
 mensagem += "👤 *DADOS DO CLIENTE*%0A";
+mensagem += "━━━━━━━━━━━━━━%0A";
 mensagem += "Nome: " + nome + "%0A";
 mensagem += "Telefone: " + telefone + "%0A";
-mensagem += "Bairro: " + bairro + "%0A";
-mensagem += "Endereço: " + endereco + "%0A";
-mensagem += "Pagamento: " + pagamento + "%0A";
-mensagem += "━━━━━━━━━━━━━━%0A";
-mensagem += "💵 Subtotal: R$ " + (subtotal || 0).toFixed(2).replace(".", ",") + "%0A";
+mensagem += "📍 Bairro: " + bairro + "%0A";
+mensagem += "🏠 Endereço: " + endereco + "%0A";
+mensagem += "💳 Pagamento: " + pagamento + "%0A%0A";
+
+
+mensagem += "💵 *RESUMO DO PEDIDO*%0A";
+mensagem += "Subtotal: R$ " + subtotal.toFixed(2).replace(".", ",") + "%0A";
+
+
 if (cupomAplicado) {
-mensagem += "🎁 Cupom: " + cupomAplicado + "%0A";
-mensagem += "Desconto: -R$ " + (descontoCupom || 0).toFixed(2).replace(".", ",") + "%0A";
+
+    mensagem += "🎁 Cupom: " + cupomAplicado + "%0A";
+    mensagem += "🏷️ Desconto: -R$ " + descontoCupom.toFixed(2).replace(".", ",") + "%0A";
+
 }
-mensagem += "🚚 Taxa de entrega: R$ " + (taxaEntrega || 0).toFixed(2).replace(".", ",") + "%0A";
+
+
+mensagem += "🚚 Entrega: R$ " + taxaEntrega.toFixed(2).replace(".", ",") + "%0A";
 mensagem += "━━━━━━━━━━━━━━%0A";
-mensagem += "💰 *Total do Pedido: R$ " + (totalPedido || 0).toFixed(2).replace(".", ",") + "*";
+mensagem += "💰 *TOTAL DO PEDIDO: R$ " + totalPedido.toFixed(2).replace(".", ",") + "*%0A%0A";
+
+mensagem += "🍝 Obrigado por escolher o Cantinho das Massas!";
 
 const numeroWhatsApp = "5511978169676";
 
