@@ -177,7 +177,6 @@ btnMarmita.addEventListener("click", function () {
         marmita.valor += 3;
     }
 
-console.log(marmita);
     carrinho.push(marmita);
 alert("Marmita adicionada!");
     atualizarCarrinho();
@@ -328,11 +327,9 @@ function removerItem(index) {
 // =======================
 
 const botoesProdutos = document.querySelectorAll(".btn-adicionar");
-console.log("Quantidade de botões encontrados:", botoesProdutos.length);
 botoesProdutos.forEach((botao) => {
 
     botao.addEventListener("click", function () {
-    console.log("Botão clicado");
         const card = botao.closest(".card");
 
         const nome = card.querySelector("h3").innerText;
@@ -488,8 +485,6 @@ btnFinalizar.addEventListener("click", function () {
 const totalComDesconto = subtotal - descontoCupom;
 
 const totalPedido = totalComDesconto + taxaEntrega;
-console.log("Subtotal do cupom:", subtotal);
-console.log("Carrinho:", carrinho);
 
 mensagem += "👤 *DADOS DO CLIENTE*%0A";
 mensagem += "Nome: " + nome + "%0A";
