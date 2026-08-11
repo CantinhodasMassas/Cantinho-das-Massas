@@ -14,7 +14,7 @@ const cupons = {
         validade: null
     },
 
-    MASSA10%: {
+    PROMO10: {
         tipo: "percentual",
         valor: 10,
         validade: "2026-08-16"
