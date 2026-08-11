@@ -14,10 +14,10 @@ const cupons = {
         validade: null
     },
 
-    CANTINHO10: {
+    MASSA10%: {
         tipo: "percentual",
-        valor: 5,
-        validade: "2026-08-10"
+        valor: 10,
+        validade: "2026-08-16"
     }
 };
 btnCupom.addEventListener("click", function () {
